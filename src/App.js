@@ -1,32 +1,35 @@
 // import logo from "./logo.svg";
 // import "./App.css";
 import React from "react";
+import CardFilm from "./components/CardFilm";
 
 class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            movies: "",
+            movies: [],
         };
     }
     componentDidMount() {
-        fetch("https://api.themoviedb.org/3/movie")
+        fetch("https://jsonplaceholder.typicode.com/albums")
             .then((response) => response.json())
             .then((mov) => {
                 console.log(mov);
+                const newMovies = mov;
+                this.setState({ movies: newMovies });
             })
-
             .catch((error) => console.log(error));
     }
     render() {
         return (
             <>
-                <h1>Hello React</h1>
+                <h1>Navigation Bar</h1>
                 {/* Navbar */}
                 <div>
-                    <h2>Hack-Film</h2>
+                    <h2>Movies Directory</h2>
                 </div>
-                {/* FilmCard */}
+                {/* {JSON.stringify(this.state.movies)} */}
+                <CardFilm movies={this.state.movies} />
             </>
         );
     }
