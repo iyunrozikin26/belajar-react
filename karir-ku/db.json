@@ -1,10 +1,65 @@
 {
-  "Jobs": [
-    { "id": 1, "title": "frontend web developer", "description": "ini sebuah deskripsi frontend","companyId" : 1, "authorId" : 1, "jobType" : "full time" },
-    { "id": 2, "title": "backend web developer", "description": "ini sebuah deskripsi backend","companyId" : 1, "authorId" : 1, "jobType" : "part time" }
+  "Jobs": [{
+      "id": 1,
+      "title": "frontend web developer",
+      "description": "ini sebuah deskripsi frontend",
+      "companyId": 1,
+      "authorId": 1,
+      "jobType": "full time",
+      "Company": {
+        "id": 1,
+        "name": "name company",
+        "companyLogo": "urlDisini.com",
+        "location": "ini sebuah lokasi",
+        "email": "company@mail.com",
+        "description": "ini sebuah deskripsi company"
+      }
+    },
+    {
+      "id": 2,
+      "title": "backend web developer",
+      "description": "ini sebuah deskripsi backend",
+      "companyId": 1,
+      "authorId": 1,
+      "jobType": "part time",
+      "Company": {
+        "id": 1,
+        "name": "name company",
+        "companyLogo": "urlDisini.com",
+        "location": "ini sebuah lokasi",
+        "email": "company@mail.com",
+        "description": "ini sebuah deskripsi company"
+      }
+    }
   ],
-  "Companies": [
-    { "id": 1, "name": "name company", "companyLogo": "urlDisini.com", "location" : "ini sebuah lokasi", "email" : "company@mail.com", "description" : "ini sebuah deskripsi company" }
-  ],
-  "Skills": { "id": 1, "jobId" : 1, "name" : "bang jago", "level" : "expert" }
+  "Companies": [{
+    "id": 1,
+    "name": "name company",
+    "companyLogo": "urlDisini.com",
+    "location": "ini sebuah lokasi",
+    "email": "company@mail.com",
+    "description": "ini sebuah deskripsi company"
+  }],
+  "Skills": {
+    "id": 1,
+    "jobId": 1,
+    "name": "bang jago",
+    "level": "expert",
+    "Jobs": [{
+      "id": 1,
+      "title": "frontend web developer",
+      "description": "ini sebuah deskripsi frontend",
+      "companyId": 1,
+      "authorId": 1,
+      "jobType": "full time",
+      "Company": {
+        "id": 1,
+        "name": "name company",
+        "companyLogo": "urlDisini.com",
+        "location": "ini sebuah lokasi",
+        "email": "company@mail.com",
+        "description": "ini sebuah deskripsi company"
+      }
+    }]
+  }
 }
