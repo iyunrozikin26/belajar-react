@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import User from './components/user.js'
+import CardJob from './components/cardJobs.js'
 
 class App extends React.Component{
   constructor() {
@@ -28,7 +29,13 @@ class App extends React.Component{
     return (
       <>
         <h1>Belajar React...</h1>
-        {JSON.stringify(this.state.jobs)}
+        {this.state.jobs.map((el, i)=> {
+          return (
+            <div key={i}>
+              <CardJob job={el}/>
+            </div>
+          )
+        })}
         <User user={this.state.name} />
       </>
     )
