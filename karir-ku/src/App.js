@@ -1,39 +1,35 @@
 import React from 'react'
 import axios from 'axios'
-
+import User from './components/user.js'
 
 class App extends React.Component{
   constructor() {
     super();
     this.state = {
-      users : []
+      name : "Wahyu Rahmana",
+      jobs : []
     }
   }
 
   componentDidMount(){
     axios({
-      url : 'https://jsonplaceholder.typicode.com/users',
+      url : 'http://localhost:3000/Jobs',
       method : 'GET'
     })
       .then((result) => {
-        //this.state.users = result.data
-        // this.setState((state)=>{
-        //   console.log(state, 'ini dari setState');
-        //   return {
-        //     users  : result.data
-        //   }
-        // })
-        this.setState({users : result.data})
-        // console.log(this.state.users, 'ini dari didmount');
+        console.log(result.data);
+        this.setState({jobs : result.data})
       }).catch((err) => {
+        console.log(err);
       });
   }
 
   render () {
     return (
       <>
-      <h1>Belajar React...</h1>
-      {JSON.stringify(this.state.users)}
+        <h1>Belajar React...</h1>
+        {JSON.stringify(this.state.jobs)}
+        <User user={this.state.name} />
       </>
     )
   }
