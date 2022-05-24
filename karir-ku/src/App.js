@@ -1,10 +1,39 @@
 import React from 'react'
+import axios from 'axios'
+
 
 class App extends React.Component{
+  constructor() {
+    super();
+    this.state = {
+      users : []
+    }
+  }
+
+  componentDidMount(){
+    axios({
+      url : 'https://jsonplaceholder.typicode.com/users',
+      method : 'GET'
+    })
+      .then((result) => {
+        //this.state.users = result.data
+        // this.setState((state)=>{
+        //   console.log(state, 'ini dari setState');
+        //   return {
+        //     users  : result.data
+        //   }
+        // })
+        this.setState({users : result.data})
+        // console.log(this.state.users, 'ini dari didmount');
+      }).catch((err) => {
+      });
+  }
+
   render () {
     return (
       <>
-      <h1>Hello Yuu...</h1>
+      <h1>Belajar React...</h1>
+      {JSON.stringify(this.state.users)}
       </>
     )
   }
