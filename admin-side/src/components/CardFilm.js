@@ -4,17 +4,17 @@ class CardFilm extends React.Component {
     render() {
         return (
             <>
-                <table>
+                <table >
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Movies</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {this.props.movies.map((movie, i) => {
                             return (
-                                <tr>
+                                <tr key={i}>
                                     <td>{i + 1}</td>
                                     <td>{movie.title}</td>
                                 </tr>

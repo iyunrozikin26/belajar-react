@@ -1,0 +1,74 @@
+{
+    "movies": [
+        {
+            "id": 1,
+            "title": "KKN Desa Penari",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BYjBjM2Y5YWEtNTgyMi00MzcwLThkYTctYzZmY2FkNjZjZTRjXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg",
+            "GenreId": 3
+        },
+        {
+            "id": 2,
+            "title": "Avenger Invinity War",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/2629bad87568290e63a1f62e81fd2d9bf3703268cdbc6ff38a02a6c5de0f0e29._RI_V_TTW_.jpg",
+            "GenreId": 1
+        },
+        {
+            "id": 3,
+            "title": "Doctor Strange",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg",
+            "GenreId": 2
+        },
+        {
+            "id": 4,
+            "title": "The Batman",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg",
+            "GenreId": 1
+        },
+        {
+            "id": 5,
+            "title": "The Lost City",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://cdn1-production-images-kly.akamaized.net/IFG2sonwabO0IQhH-yNQDXjcK_M=/640x853/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3972489/original/052846900_1648021027-mv5bmmiwyzfhodaty2i1ys00zddmltkyywqtzji5ndiwmdc2mjeyxkeyxkfqcgdeqxvyodk4otc3mty._v1_.jpg",
+            "GenreId": 3
+        },
+        {
+            "id": 6,
+            "title": "Uncharted",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BMWEwNjhkYzYtNjgzYy00YTY2LThjYWYtYzViMGJkZTI4Y2MyXkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_.jpg",
+            "GenreId": 3
+        },
+        {
+            "id": 7,
+            "title": "Mission Impossible",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/en/f/ff/MI_%E2%80%93_Fallout.jpg",
+            "GenreId": 3
+        }
+    ],
+    "genre": [
+        {
+            "id": 1,
+            "name": "action"
+        },
+        {
+            "id": 2,
+            "name": "sci-fi"
+        },
+        {
+            "id": 3,
+            "name": "adventure"
+        }
+    ]
+}
