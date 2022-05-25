@@ -1,94 +1,123 @@
-import {useState} from 'react'
-import User from './components/user'
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import MenuItem from '@mui/material/MenuItem';
+import IconButton from '@mui/material/IconButton';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
 
-function App() {
-  const [count, setCount] = useState(0) //menggunakan state di functional component
-  const [name, setName] = useState('Wahyu') 
-  function handleClickCount(num) {
-    setCount(count + num) //setCount digunakan untuk mengubah nilai count/update nilai
-    console.log(count);
-  }
-
-  return(
+export default function App() {
+  const [pages, setPages] = useState([
+    "Jobs",
+    "Companies",
+    "Skills"
+  ])
+  return (
     <>
-    <h1>{count}</h1>
-    {/* <button onClick={handleClickCount(2)}>Add</button> // akan terjadi infinite loop, karena tidak membuat fungsi anonymous */}
-    <button onClick={() => handleClickCount(2)}>Add</button>
-    <User data={name}/>
-    </>
-  )
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            KARIR-KU
+          </Typography>
+          {pages.map((page) => (
+            <MenuItem key={page}>
+              <Typography textAlign="center">{page}</Typography>
+            </MenuItem>
+          ))}
+          <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        </Toolbar>
+      </AppBar>
+    </Box>
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={3}>
+        <Grid item xs>
+          <Card sx={{ minWidth: 100 }}>
+            <CardContent>
+              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                Word of the Day
+              </Typography>
+              <Typography variant="h5" component="div">
+                be zzzz nev zzzz o zzzz lent
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                adjective
+              </Typography>
+              <Typography variant="body2">
+                well meaning and kindly.
+                <br />
+                {'"a benevolent smile"'}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs>
+          <Card sx={{ minWidth: 100 }}>
+            <CardContent>
+              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                Word of the Day
+              </Typography>
+              <Typography variant="h5" component="div">
+                be zzzz nev zzzz o zzzz lent
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                adjective
+              </Typography>
+              <Typography variant="body2">
+                well meaning and kindly.
+                <br />
+                {'"a benevolent smile"'}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        </Grid>
+        <Grid item xs>
+          <Card sx={{ minWidth: 100 }}>
+            <CardContent>
+              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                Word of the Day
+              </Typography>
+              <Typography variant="h5" component="div">
+                be zzzz nev zzzz o zzzz lent
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                adjective
+              </Typography>
+              <Typography variant="body2">
+                well meaning and kindly.
+                <br />
+                {'"a benevolent smile"'}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Learn More</Button>
+            </CardActions>
+          </Card>
+        </Grid>
+      </Grid>
+    </Box>
+  </>
+  );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// <div className="App">
-//   <header className="App-header">
-//     <img src={logo} className="App-logo" alt="logo" />
-//     <p>
-//       Edit <code>src/App.js</code> and save to reload.
-//     </p>
-//     <a
-//       className="App-link"
-//       href="https://reactjs.org"
-//       target="_blank"
-//       rel="noopener noreferrer"
-//     >
-//       Learn React
-//     </a>
-//   </header>
-// </div>
-
-// import React from 'react'
-// import axios from 'axios'
-// import User from './components/user.js'
-// import CardJob from './components/cardJobs.js'
-
-// class App extends React.Component{
-//   constructor() {
-//     super();
-//     this.state = {
-//       name : "Wahyu Rahmana",
-//       jobs : []
-//     }
-//   }
-
-//   componentDidMount(){
-//     axios({
-//       url : 'http://localhost:3000/Jobs',
-//       method : 'GET'
-//     })
-//       .then((result) => {
-//         console.log(result.data);
-//         this.setState({jobs : result.data})
-//       }).catch((err) => {
-//         console.log(err);
-//       });
-//   }
-
-//   render () {
-//     return (
-//       <>
-//         <h1>Belajar React...</h1>
-//         {this.state.jobs.map((el, i)=> {
-//           return (
-//             <div key={i}>
-//               <CardJob job={el}/>
-//             </div>
-//           )
-//         })}
-//         <User user={this.state.name} />
-//       </>
-//     )
-//   }
-// }
-
-export default App;

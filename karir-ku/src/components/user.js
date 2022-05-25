@@ -1,7 +1,7 @@
 function User(props){
   return (
     <>
-      <h2>{props.data}</h2>
+     
     </>
   )
 }

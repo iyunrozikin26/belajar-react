@@ -1,3 +1,10 @@
+function CardJob(){
+  
+}
+
+
+export default CardJob
+
 // import React from "react";
 
 // class CardJob extends React.Component {
@@ -12,5 +19,3 @@
 //     )
 //   }
 // }
-
-// export default CardJob

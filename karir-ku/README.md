@@ -8,7 +8,7 @@
 - [x] Membuat functional component
 - [x] Membuat state di functional component
 - [x] Mengakses state di child
-- [x] Mengupdate nilai state dengan onclick
+- [x] Mengupdate nilai state dengan onclick pada hooks useState
 
 ### Report
 `Belum Mengatur layouting dan tampilan masih apa adanya`
