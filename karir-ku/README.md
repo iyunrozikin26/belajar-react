@@ -1,10 +1,10 @@
 # Progres Wahyu Rahmana
 ## Tema Aplikasi `Career Portal`
 - [ ] Mulai Membiasakan Membaca Dokumentasi Terlebih Dahulu
+- [] Memperbaiki Layouting
 - [x] Membuat Class Component Awal
 - [x] Mengambil Sebuah Data Dari Server (fetch)
 - [x] Memanfaatkan Props
-- [] Memperbaiki Layouting
 - [x] Membuat functional component
 - [x] Membuat state di functional component
 - [x] Mengakses state di child
@@ -12,6 +12,11 @@
 - [x] Memanfatkan reusable components
 - [x] route jobs
 - [x] route detail jobs
+- [x] route admin
+- [x] menggunakan loading
+- [x] membuat halaman dan routingan not found
+- [x] membuat halaman login
+
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`

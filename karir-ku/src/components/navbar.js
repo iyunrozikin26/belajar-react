@@ -11,8 +11,10 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const [pages, setPages] = useState([
     ["Jobs","jobs"],
-    ["Companies","companie"],
-    ["Skills", "skills"]
+    ["Companies","companies"],
+    ["Skills", "skills"],
+    ["Login", "login"],
+    ["Data", "admin-page"]
   ])
   
   return (
