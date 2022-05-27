@@ -10,6 +10,9 @@
 - [x] Mengakses state di child
 - [x] Mengupdate nilai state dengan onclick pada hooks useState
 - [x] Memanfatkan reusable components
+- [x] route jobs
+- [x] route detail jobs
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`
+`Belum Login, Protected, CRUD`

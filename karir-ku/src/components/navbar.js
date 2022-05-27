@@ -6,12 +6,13 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const [pages, setPages] = useState([
-    "Jobs",
-    "Companies",
-    "Skills"
+    ["Jobs","jobs"],
+    ["Companies","companie"],
+    ["Skills", "skills"]
   ])
   
   return (
@@ -20,11 +21,11 @@ function Navbar() {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-              KARIR-KU
+              <Link to='/' style={{ textDecoration: 'none', color:'white' }}>KARIR-KU</Link>
             </Typography>
             {pages.map((page) => (
               <MenuItem key={page}>
-                <Typography textAlign="center">{page}</Typography>
+                <Link to={page[1]} style={{ textDecoration: 'none', color:'white' }}><Typography textAlign="center">{page[0]}</Typography></Link>
               </MenuItem>
             ))}
             <IconButton

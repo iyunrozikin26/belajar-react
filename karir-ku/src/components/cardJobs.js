@@ -6,6 +6,7 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -16,8 +17,10 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function CardJob(props){
+
   return (
     <>
+    {/* {JSON.stringify(props.data)} */}
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
           {props.data.map((el) => (
@@ -39,7 +42,7 @@ function CardJob(props){
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Learn More</Button>
+                  <Link to={`detail/${el.id}`} ><Button size="small">Learn More</Button></Link>
                 </CardActions>
               </Item>
             </Grid>
@@ -52,18 +55,3 @@ function CardJob(props){
 
 
 export default CardJob
-
-// import React from "react";
-
-// class CardJob extends React.Component {
-//   render() {
-//     return (
-//       <ul>
-//         <li>Title : {this.props.job.title}</li>
-//         <li>description : {this.props.job.description}</li>
-//         <li>Job Type : {this.props.job.jobType}</li>
-//         <li>Company Name: {this.props.job.Company.name}</li>
-//       </ul>
-//     )
-//   }
-// }
