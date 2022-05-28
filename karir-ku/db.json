@@ -67,6 +67,23 @@
         "email": "company@mail.com",
         "description": "ini sebuah deskripsi company"
       }
+    },
+    {
+      "id": 5,
+      "title": "frontend web developer",
+      "description": "ini sebuah deskripsi frontend",
+      "companyId": 1,
+      "authorId": 1,
+      "jobType": "full time",
+      "expired" : "2022-12-12",
+      "Company": {
+        "id": 1,
+        "name": "name company",
+        "companyLogo": "urlDisini.com",
+        "location": "ini sebuah lokasi",
+        "email": "company@mail.com",
+        "description": "ini sebuah deskripsi company"
+      }
     }
   ],
   "Companies": [

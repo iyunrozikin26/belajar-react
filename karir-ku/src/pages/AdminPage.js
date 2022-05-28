@@ -23,7 +23,7 @@ const rows = [
 export default function BasicTable() {
   return (
     <>
-    <Button variant="contained">Contained</Button>
+    <Button variant="contained">ADD</Button>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
