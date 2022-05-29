@@ -16,8 +16,9 @@
 - [x] menggunakan loading
 - [x] membuat halaman dan routingan not found
 - [x] membuat halaman login
+- [x] memperjelas protected routingan dengan menambahkan to pada pembanding
 
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`
-`Belum Login, Protected, CRUD`
+`Belum fungsi Login, CRUD`

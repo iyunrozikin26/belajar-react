@@ -13,9 +13,13 @@ export default function App() {
     <Routes>
       <Route path='/' element={<Home />}/>
       <Route path='jobs' element={<Jobs />}/>
-      <Route path='login' element={<Login />}/>
+      <Route path='login' element={
+        <ProtectedRoute user={user} to={'login'}>
+          <Login />
+      </ProtectedRoute>
+      }/>
       <Route path='admin-page' element={
-        <ProtectedRoute user={user}>
+        <ProtectedRoute user={user} to={'admin'}>
           <AdminPage />
         </ProtectedRoute>
         }/>
