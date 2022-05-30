@@ -1,0 +1,11 @@
+.moviesTable {
+    width: 50%;
+    border: 2px;
+    /* text-align: center; */
+    margin-top: 20px;
+    padding-left: 100px;
+    border: transparent;
+}
+.moviesTable Table thead {
+   text-align: center;
+}

@@ -11,7 +11,7 @@ export default function useFetch(url) {
         fetch(url)
             .then((response) => response.json())
             .then((movies) => {
-                //  console.log(movies);
+                console.log(movies);
                 setMovies(movies);
             })
             .catch((err) => setError(err.message))
