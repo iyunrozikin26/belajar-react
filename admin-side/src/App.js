@@ -8,7 +8,7 @@ import AddMovies from "./pages/AddMovies";
 
 // pages
 import DetailsMovie from "./pages/DetailsPage";
-import Loginpage from "./pages/LoginPage";
+import LoginPage from "./pages/LoginPage";
 import UpdateMovies from "./pages/UpdateMovie";
 
 function App() {
@@ -40,9 +40,9 @@ function App() {
             <Routes>
                 <Route path="/" element={<CardMovies movies={moviesData} />}>
                     <Route path="/movies" element={<CardMovies movies={moviesData} />} />
-=                    <Route path="/movies/:movieId" element={<CardMovies movies={moviesData} />} />
+                    = <Route path="/movies/:movieId" element={<CardMovies movies={moviesData} />} />
                 </Route>
-                <Route path="login" element={<Loginpage />} />
+                <Route path="login" element={<LoginPage />} />
                 <Route path="details/:movieId" element={<DetailsMovie />} />
                 <Route path="addMovies" element={<AddMovies />} />
                 <Route path="editMovies/:movieId" element={<UpdateMovies />} />

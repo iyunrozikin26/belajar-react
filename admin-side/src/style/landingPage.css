@@ -1,12 +1,9 @@
-.movieWrapper{
-    /* background: tomato; */
-}
 .title {
-    font-size:2rem;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 1;
     /* text-shadow: 2px 2px black; */
-    letter-spacing: 4px; 
+    letter-spacing: 4px;
 }
 .images {
     height: 200px;
@@ -22,6 +19,11 @@
     margin: 5px;
     justify-content: center;
     padding: 2px;
+}
+.cardDetails{
+    width: 700px;
+    border: 1px;
+    border-radius: 2px;
 }
 /* css navbar image */
 .newMovies {
@@ -58,5 +60,5 @@
     /* align-items: center; */
     background: tomato;
     font-weight: 500;
-    width:450px;
+    width: 450px;
 }

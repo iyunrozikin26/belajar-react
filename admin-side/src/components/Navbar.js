@@ -5,7 +5,7 @@ const NavigationBar = () => {
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Container>
+                <Container className="containerNavbar">
                     <Navbar.Brand>
                         <Link to="/">HackMovies</Link>
                     </Navbar.Brand>
@@ -15,7 +15,9 @@ const NavigationBar = () => {
                             <Nav.Link>
                                 <Link to="addMovies">Add Movies</Link>
                             </Nav.Link>
-                            <Nav.Link href="#pricing">Pricing</Nav.Link>
+                            <Nav.Link>
+                                <Link to="login">Login</Link>
+                            </Nav.Link>
                             <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

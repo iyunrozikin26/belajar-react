@@ -27,7 +27,7 @@ function DetailsMovie() {
     return (
         <>
             <h2 className="m-3 text-dark">Details of Movie </h2>
-            <CardGroup className="p-1 m-3 bg-dark">
+            <CardGroup className="cardDetails p-1 m-3 bg-dark">
                 <Card>
                     <Card.Img className="m-1 p-1" variant="top" src={movie.imgUrl} />
                 </Card>
