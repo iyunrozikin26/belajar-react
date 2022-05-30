@@ -1,7 +1,13 @@
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavigationBar = () => {
+    const navigate = useNavigate();
+    const handleLogout = () => {
+        // console.log('ini logout');
+        localStorage.clear();
+        navigate("/login");
+    };
     return (
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -28,8 +34,8 @@ const NavigationBar = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link href="#deets">More deets</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                                Dank memes
+                            <Nav.Link eventKey={2} onClick={handleLogout}>
+                                LogOut
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>

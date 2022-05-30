@@ -23,6 +23,7 @@ function CardMovies({ movies }) {
     return (
         <>
             <Container>
+                <br />
                 <h1 className="title text-dark">LIST MOVIES</h1>
                 <Row>
                     {movies.map((movie, i) => {
@@ -32,7 +33,7 @@ function CardMovies({ movies }) {
                                     <Image src={movie.imgUrl} alt={movie.title} className="images" />
                                     <div className="bg-dark">
                                         <div className="p-2 text-white">
-                                            <Card.Title className="text-center">{movie.title}</Card.Title>
+                                            <Card.Title className="h6 text-center">{movie.title}</Card.Title>
                                             <Card.Text>
                                                 <Nav.Link className="d-flex justify-content-around">
                                                     <Link className="text-white" to={`/details/${movie.id}`}>

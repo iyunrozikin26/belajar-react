@@ -2,12 +2,16 @@
     font-size: 2rem;
     font-weight: 600;
     line-height: 1;
-    /* text-shadow: 2px 2px black; */
     letter-spacing: 4px;
+}
+.cardTitle {
+    /* height: 200px; */
+    background: tomato;
+    font-size: 2px;
 }
 .images {
     height: 200px;
-    /* width: 150px; */
+    font-size: 10px;
 }
 .movieImage {
     display: inline-flex;
@@ -15,12 +19,11 @@
     flex-wrap: wrap;
     width: 180px;
     height: auto;
-    /* background-color: tomato; */
     margin: 5px;
     justify-content: center;
     padding: 2px;
 }
-.cardDetails{
+.cardDetails {
     width: 700px;
     border: 1px;
     border-radius: 2px;
@@ -32,8 +35,6 @@
     align-items: center;
     height: auto;
     flex-wrap: wrap;
-    /* flex-wrap: inherit; */
-    /* overflow-wrap: break-word; */
 }
 .img {
     margin-top: 35px;
