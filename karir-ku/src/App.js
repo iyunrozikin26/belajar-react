@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from './components/navbar.js'
 import {Home,Jobs, DetailJob, Login, AdminPage, NotFound, ProtectedRoute} from './pages'
-
+import FormAdd from "./components/formAdd.js";
 import { Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -23,8 +23,13 @@ export default function App() {
           <AdminPage />
         </ProtectedRoute>
         }/>
-      <Route path='*' element={<NotFound />}/>
+        <Route path='add-jobs' element={
+        <ProtectedRoute user={user} to={'add'}>
+          <FormAdd />
+        </ProtectedRoute>
+        }/>
       <Route path='jobs/detail/:JobId' element={<DetailJob />}/>
+      <Route path='*' element={<NotFound />}/>
     </Routes>
   </>
   );

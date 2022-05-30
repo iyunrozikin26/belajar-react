@@ -14,6 +14,10 @@ const ProtectedRoute = ({ user, to,  children }) => {
     return <Navigate to="/admin-page" replace />;
   }
 
+  if (!user && to === 'add') {
+    return <Navigate to="/login" replace />;
+  }
+
   return children;
 };
 

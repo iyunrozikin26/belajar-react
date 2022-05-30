@@ -17,7 +17,7 @@
 - [x] membuat halaman dan routingan not found
 - [x] membuat halaman login
 - [x] memperjelas protected routingan dengan menambahkan to pada pembanding
-
+- [x] menambahkan protected route di add jobs
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`
