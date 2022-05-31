@@ -7,15 +7,7 @@
       "companyId": 1,
       "authorId": 1,
       "jobType": "full time",
-      "expired" : "2022-12-12",
-      "Company": {
-        "id": 1,
-        "name": "name company",
-        "companyLogo": "urlDisini.com",
-        "location": "ini sebuah lokasi",
-        "email": "company@mail.com",
-        "description": "ini sebuah deskripsi company"
-      }
+      "expired": "2022-12-12"
     },
     {
       "id": 2,
@@ -24,15 +16,7 @@
       "companyId": 1,
       "authorId": 1,
       "jobType": "part time",
-      "expired" : "2022-11-11",
-      "Company": {
-        "id": 1,
-        "name": "name company",
-        "companyLogo": "urlDisini.com",
-        "location": "ini sebuah lokasi",
-        "email": "company@mail.com",
-        "description": "ini sebuah deskripsi company"
-      }
+      "expired": "2022-11-11"
     },
     {
       "id": 3,
@@ -41,15 +25,7 @@
       "companyId": 1,
       "authorId": 1,
       "jobType": "full time",
-      "expired" : "2022-12-12",
-      "Company": {
-        "id": 1,
-        "name": "name company",
-        "companyLogo": "urlDisini.com",
-        "location": "ini sebuah lokasi",
-        "email": "company@mail.com",
-        "description": "ini sebuah deskripsi company"
-      }
+      "expired": "2022-12-12"
     },
     {
       "id": 4,
@@ -58,15 +34,7 @@
       "companyId": 1,
       "authorId": 1,
       "jobType": "full time",
-      "expired" : "2022-12-12",
-      "Company": {
-        "id": 1,
-        "name": "name company",
-        "companyLogo": "urlDisini.com",
-        "location": "ini sebuah lokasi",
-        "email": "company@mail.com",
-        "description": "ini sebuah deskripsi company"
-      }
+      "expired": "2022-12-12"
     },
     {
       "id": 5,
@@ -75,15 +43,7 @@
       "companyId": 1,
       "authorId": 1,
       "jobType": "full time",
-      "expired" : "2022-12-12",
-      "Company": {
-        "id": 1,
-        "name": "name company",
-        "companyLogo": "urlDisini.com",
-        "location": "ini sebuah lokasi",
-        "email": "company@mail.com",
-        "description": "ini sebuah deskripsi company"
-      }
+      "expired": "2022-12-12"
     }
   ],
   "Companies": [

@@ -19,6 +19,7 @@
 - [x] memperjelas protected routingan dengan menambahkan to pada pembanding
 - [x] menambahkan protected route di add jobs
 - [x] menggunakan redux
+- [x] fitur create tanpa thunk 
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`

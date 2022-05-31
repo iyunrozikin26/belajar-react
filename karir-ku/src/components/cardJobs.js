@@ -34,7 +34,7 @@ function CardJob(props){
                     {el.title}
                   </Typography>
                   <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    {el.Company.name}
+                    Nama Company nya disini
                   </Typography>
                   <Typography variant="body2">
                     expired : {el.expired} (xx hari lagi)

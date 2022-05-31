@@ -1,6 +1,6 @@
 const init_state = {
   jobs : [],
-  loading : true
+  loading : true,
 }
 
 function jobsReducer(state = init_state, action){

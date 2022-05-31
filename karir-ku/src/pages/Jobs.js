@@ -1,6 +1,6 @@
 import CardJob from '../components/cardJobs.js'
 import axios from  'axios'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
