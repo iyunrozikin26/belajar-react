@@ -11,8 +11,11 @@ import { Link } from "react-router-dom";
 import axios from  'axios'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from "react-router-dom";
 
 export default function BasicTable() {
+  let navigate = useNavigate();
+
   const rows = useSelector((state) => state.jobsReducer.jobs)
 
   const dispatch = useDispatch();
@@ -39,6 +42,20 @@ export default function BasicTable() {
       console.log(error);
     }
   }
+
+  //tinggal menggunakan navigasi jika sudah berhasil
+  const deleteJob = async (jobId) => {
+    try {
+      const destroyJob = await axios({
+        url : 'http://localhost:3000/jobs/'+jobId,
+        method : 'DELETE'
+      })
+      console.log(destroyJob)
+      navigate("/jobs", { replace: true });
+    } catch (error) {
+      console.log(error);
+    }
+  }
   return (
     <>
     <Link to='/add-jobs' style={{ textDecoration: 'none', color:'white' }}><Button variant="contained">ADD</Button></Link>
@@ -57,7 +74,7 @@ export default function BasicTable() {
           <TableBody>
             {rows.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
@@ -66,7 +83,7 @@ export default function BasicTable() {
                 <TableCell align="right">{row.jobType}</TableCell>
                 <TableCell align="right">Nama Company nya disini</TableCell>
                 <TableCell align="right">{row.expired}</TableCell>
-                <TableCell align="right">tombol</TableCell>
+                <TableCell align="right"><Button variant="contained">Edit</Button><Button variant="contained" onClick={()=> {deleteJob(row.id)}}>Hapus</Button></TableCell>
               </TableRow>
             ))}
           </TableBody>

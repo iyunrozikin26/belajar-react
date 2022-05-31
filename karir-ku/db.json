@@ -26,24 +26,6 @@
       "authorId": 1,
       "jobType": "full time",
       "expired": "2022-12-12"
-    },
-    {
-      "id": 4,
-      "title": "frontend web developer",
-      "description": "ini sebuah deskripsi frontend",
-      "companyId": 1,
-      "authorId": 1,
-      "jobType": "full time",
-      "expired": "2022-12-12"
-    },
-    {
-      "id": 5,
-      "title": "frontend web developer",
-      "description": "ini sebuah deskripsi frontend",
-      "companyId": 1,
-      "authorId": 1,
-      "jobType": "full time",
-      "expired": "2022-12-12"
     }
   ],
   "Companies": [

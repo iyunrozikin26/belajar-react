@@ -5,9 +5,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useState } from 'react';
 import axios from  'axios'
 import { nanoid } from 'nanoid'
+import { useNavigate } from "react-router-dom";
 
 //jika di reload maka id nya akan undefined
 export default function FormAdd() {
+  let navigate = useNavigate();
   const data = useSelector((state) => state.jobsReducer)
 
   const [input, setInput] = useState({
@@ -27,6 +29,7 @@ export default function FormAdd() {
     })
   }
 
+  //tinggal menggunakan navigasi jika sudah berhasil
   const handleSubmit = () => {
     axios({
       url : 'http://localhost:3000/jobs',
@@ -35,6 +38,7 @@ export default function FormAdd() {
     })
     .then((result) => {
       console.log(result, 'ini notif berhasil')
+      navigate("/admin-page", { replace: true });
     }).catch((err) => {
       console.log(err, 'ini notif err')
     });

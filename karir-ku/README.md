@@ -20,6 +20,7 @@
 - [x] menambahkan protected route di add jobs
 - [x] menggunakan redux
 - [x] fitur create tanpa thunk 
+- [x] fitur delete tanpa thunk
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`
