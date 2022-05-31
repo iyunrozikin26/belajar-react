@@ -1,15 +1,22 @@
 import CardJob from '../components/cardJobs.js'
-import { useEffect, useState } from 'react';
 import axios from  'axios'
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
 export default function Jobs() {
-  const [jobs, setJobs] = useState([])
-  const [loading, setLoading] = useState(true)
+  // const [jobs, setJobs] = useState([])
+  // const [loading, setLoading] = useState(true)
+  
+  const data = useSelector((state) => state)
+
+  const dispatch = useDispatch();
+
   useEffect(()=>{
     getAllJobs()
   }, [])
+
 
   const getAllJobs = async () => {
     try {
@@ -17,8 +24,13 @@ export default function Jobs() {
         url : 'http://localhost:3000/jobs',
         method : 'GET'
       })
-      setJobs(allJobs.data)
-      setLoading(false)
+      dispatch({
+        type : 'getAllJobs',
+        payload : {
+          jobs : allJobs.data,
+          loading : false
+        }
+      })
     } catch (error) {
       console.log(error);
     }
@@ -26,12 +38,12 @@ export default function Jobs() {
 
   return (
     <>
-    {loading === true && 
+    {data.loading === true && 
       <Box sx={{ width: '100%' }}>
         <LinearProgress />
       </Box>
     }
-    <CardJob data={jobs}/>
+    <CardJob data={data.jobs}/>
   </>
   );
 }

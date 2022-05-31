@@ -18,7 +18,9 @@
 - [x] membuat halaman login
 - [x] memperjelas protected routingan dengan menambahkan to pada pembanding
 - [x] menambahkan protected route di add jobs
+- [x] menggunakan redux
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`
-`Belum fungsi Login, CRUD`
+`Belum fungsi Login, Create, Update, Delete`
+`Belum Sempurna untuk Read data`
