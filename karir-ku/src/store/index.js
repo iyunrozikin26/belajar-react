@@ -1,21 +1,7 @@
 import { createStore } from 'redux';
+import reducers from './reducers'
 
-const init_state = {
-  jobs : [],
-  loading : true
-}
 
-function jobsReducer(state = init_state, action){
-  switch(action.type){
-    case 'getAllJobs' :
-      state.jobs = action.payload.jobs
-      state.loading = action.payload.loading
-      return state
-    default:
-      return state;
-  }
-}
-
-const store = createStore(jobsReducer)
+const store = createStore(reducers)
 
 export default store

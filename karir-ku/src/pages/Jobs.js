@@ -6,10 +6,8 @@ import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
 
 export default function Jobs() {
-  // const [jobs, setJobs] = useState([])
-  // const [loading, setLoading] = useState(true)
-  
-  const data = useSelector((state) => state)
+
+  const data = useSelector((state) => state.jobsReducer)
 
   const dispatch = useDispatch();
 
