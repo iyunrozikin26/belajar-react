@@ -51,7 +51,8 @@ export default function BasicTable() {
         method : 'DELETE'
       })
       console.log(destroyJob)
-      navigate("/jobs", { replace: true });
+      getAllJobs()
+      navigate("/admin-page", { replace: true });
     } catch (error) {
       console.log(error);
     }
