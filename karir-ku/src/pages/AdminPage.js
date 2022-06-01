@@ -57,9 +57,12 @@ export default function BasicTable() {
       console.log(error);
     }
   }
+  const detailJob = async (jobId) => {
+    navigate("/crud-jobs/"+jobId, { replace: true });
+  }
   return (
     <>
-    <Link to='/add-jobs' style={{ textDecoration: 'none', color:'white' }}><Button variant="contained">ADD</Button></Link>
+    <Link to='/crud-jobs' style={{ textDecoration: 'none', color:'white' }}><Button variant="contained">ADD</Button></Link>
     
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -84,7 +87,7 @@ export default function BasicTable() {
                 <TableCell align="right">{row.jobType}</TableCell>
                 <TableCell align="right">Nama Company nya disini</TableCell>
                 <TableCell align="right">{row.expired}</TableCell>
-                <TableCell align="right"><Button variant="contained">Edit</Button><Button variant="contained" onClick={()=> {deleteJob(row.id)}}>Hapus</Button></TableCell>
+                <TableCell align="right"><Button variant="contained" onClick={()=> {detailJob(row.id)}}>Edit</Button><Button variant="contained" onClick={()=> {deleteJob(row.id)}}>Hapus</Button></TableCell>
               </TableRow>
             ))}
           </TableBody>

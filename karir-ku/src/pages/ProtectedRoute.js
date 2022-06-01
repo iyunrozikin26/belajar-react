@@ -18,6 +18,10 @@ const ProtectedRoute = ({ user, to,  children }) => {
     return <Navigate to="/login" replace />;
   }
 
+  if (!user && to === 'edit') {
+    return <Navigate to="/login" replace />;
+  }
+
   return children;
 };
 

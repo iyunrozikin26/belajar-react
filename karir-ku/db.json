@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "title": "backend web developer",
+      "title": "backend web developer123",
       "description": "ini sebuah deskripsi backend",
       "companyId": 1,
       "authorId": 1,
@@ -20,7 +20,7 @@
     },
     {
       "id": 3,
-      "title": "frontend web developer",
+      "title": "frontend web developer123",
       "description": "ini sebuah deskripsi frontend",
       "companyId": 1,
       "authorId": 1,

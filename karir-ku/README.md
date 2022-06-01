@@ -21,6 +21,7 @@
 - [x] menggunakan redux
 - [x] fitur create tanpa thunk 
 - [x] fitur delete tanpa thunk
+- [x] 1 form, 1 url, 2 fungsi (add, edit)
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`
