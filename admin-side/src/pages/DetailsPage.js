@@ -23,7 +23,6 @@ function DetailsMovie() {
     }, [movieId]);
    //  console.log(movie);
    
-
     return (
         <>
             <h2 className="m-3 text-dark">Details of Movie </h2>
