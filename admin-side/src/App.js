@@ -2,6 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import CardMovies from "./components/CardMovies";
 import NavigationBar from "./components/Navbar";
+import IsLogin from "./guard/isLogin";
 import AddMovies from "./pages/AddMovies";
 
 // pages
@@ -14,14 +15,57 @@ function App() {
         <>
             <NavigationBar />
             <Routes>
-                <Route path="/" element={<CardMovies />}>
-                    <Route path="/movies" element={<CardMovies />} />
-                    <Route path="/movies/:movieId" element={<CardMovies />} />
-                </Route>
                 <Route path="login" element={<LoginPage />} />
-                <Route path="details/:movieId" element={<DetailsMovie />} />
-                <Route path="addMovies" element={<AddMovies />} />
-                <Route path="editMovies/:movieId" element={<UpdateMovies />} />
+
+                <Route
+                    path="/"
+                    element={
+                        <IsLogin>
+                            <CardMovies />
+                        </IsLogin>
+                    }
+                >
+                    <Route
+                        path="/movies"
+                        element={
+                            <IsLogin>
+                                <CardMovies />
+                            </IsLogin>
+                        }
+                    />
+                    <Route
+                        path="/movies/:movieId"
+                        element={
+                            <IsLogin>
+                                <CardMovies />
+                            </IsLogin>
+                        }
+                    />
+                </Route>
+                <Route
+                    path="details/:movieId"
+                    element={
+                        <IsLogin>
+                            <DetailsMovie />
+                        </IsLogin>
+                    }
+                />
+                <Route
+                    path="addMovies"
+                    element={
+                        <IsLogin>
+                            <AddMovies />
+                        </IsLogin>
+                    }
+                />
+                <Route
+                    path="editMovies/:movieId"
+                    element={
+                        <IsLogin>
+                            <UpdateMovies />
+                        </IsLogin>
+                    }
+                />
             </Routes>
         </>
     );

@@ -1,7 +1,8 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addMovies } from "../store/actionCreator/creator";
 
 function AddMovies() {
     const [newMovie, setNewMovie] = useState({
@@ -19,20 +20,10 @@ function AddMovies() {
         console.log(newMovie);
     };
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const submitAddMovie = (e) => {
         e.preventDefault();
-        axios({
-            method: "post",
-            url: "http://localhost:3000/movies",
-            data: newMovie,
-        })
-            .then(({ data }) => {
-                console.log(data);
-                navigate("/movies");
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        dispatch(addMovies(newMovie));
     };
     return (
         <>

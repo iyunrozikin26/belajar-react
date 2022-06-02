@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { CardGroup, Card, Button } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { details } from "../store/actionCreator/creator";
 
 function DetailsMovie() {
     const { movieId } = useParams();
-    const [movie, setMovie] = useState({});
+    // const [movie, setMovie] = useState({});
     //  didMount jika diberikan [] kosong pada parameer ke-2
     //  didMount, didUpdated, didUnMount dijalankan ketika parameter kedua kosong atau tidak diberikan
+    const dispatch = useDispatch();
+    const { movie } = useSelector((state) => state.moviesReducer);
     useEffect(() => {
-        axios({
-            method: "get",
-            url: "http://localhost:3000/movies/" + movieId,
-        })
-            .then(({ data }) => {
-                // console.log(data);
-                setMovie(data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        dispatch(details(movieId));
     }, [movieId]);
-   //  console.log(movie);
-   
+
     return (
         <>
             <h2 className="m-3 text-dark">Details of Movie </h2>

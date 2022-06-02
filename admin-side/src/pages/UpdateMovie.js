@@ -1,16 +1,14 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, Navigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getSingleMovie, updatedMovie } from "../store/actionCreator/creator";
 
 function UpdateMovies() {
-    const [newMovie, setNewMovie] = useState({
-        title: "",
-        synopsis: "",
-        imgUrl: "",
-        rating: "",
-        GenreId: "",
-    });
+    const { movie } = useSelector((state) => state.moviesReducer);
+
+    const [newMovie, setNewMovie] = useState(movie);
+
     const handleUpdate = (e) => {
         setNewMovie({
             ...newMovie,
@@ -20,21 +18,12 @@ function UpdateMovies() {
     const navigate = useNavigate();
 
     const { movieId } = useParams();
+    const dispatch = useDispatch();
 
     const getMovie = () => {
-        axios({
-            method: "get",
-            url: "http://localhost:3000/movies/" + movieId,
-        })
-            .then(({ data }) => {
-                console.log(data);
-                setNewMovie(data);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        dispatch(getSingleMovie(movieId));
     };
-    console.log(newMovie, "ini baru");
+    // console.log(newMovie, "ini baru");
 
     useEffect(() => {
         getMovie();
@@ -42,18 +31,8 @@ function UpdateMovies() {
 
     const submitUpdateMovie = (e) => {
         e.preventDefault();
-        axios({
-            method: "put",
-            url: "http://localhost:3000/movies/" + movieId,
-            data: newMovie,
-        })
-            .then(({ data }) => {
-                console.log(data);
-                navigate(`/details/${movieId}`);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        dispatch(updatedMovie(movieId, newMovie));
+        navigate(`/details/${movieId}`);
     };
     return (
         <>
