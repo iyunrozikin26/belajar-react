@@ -1,9 +1,9 @@
 import CardJob from '../components/cardJobs.js'
-import axios from  'axios'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import { fetchJob } from '../store/actions/jobAction.js';
 
 export default function Jobs() {
 
@@ -12,27 +12,8 @@ export default function Jobs() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    getAllJobs()
+    dispatch(fetchJob()) //panggil fungsi fetchJob utk di dispatch didlm thunk/middleware
   }, [])
-
-
-  const getAllJobs = async () => {
-    try {
-      const allJobs = await axios({
-        url : 'http://localhost:3000/jobs',
-        method : 'GET'
-      })
-      dispatch({
-        type : 'getAllJobs',
-        payload : {
-          jobs : allJobs.data,
-          loading : false
-        }
-      })
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <>

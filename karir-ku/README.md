@@ -22,8 +22,9 @@
 - [x] fitur create tanpa thunk 
 - [x] fitur delete tanpa thunk
 - [x] 1 form, 1 url, 2 fungsi (add, edit)
+- [x] CRUD menggunakan thunk middleware
 
 ### Report
 `Masih Mengatur Layouting dan belum CRUD data`
-`Belum fungsi Login, Create, Update, Delete`
-`Belum Sempurna untuk Read data`
+`Belum fungsi Login`
+`Belum Membedakan link antara admin dengan user biasa`

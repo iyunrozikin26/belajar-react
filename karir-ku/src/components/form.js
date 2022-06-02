@@ -5,12 +5,15 @@ import { useState, useEffect } from 'react';
 import axios from  'axios'
 import { nanoid } from 'nanoid'
 import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { detailJob, addJob, updateJob } from '../store/actions/jobAction';
 
-//jika di reload maka id nya akan undefined
+
 export default function FormCrud() {
   let navigate = useNavigate();
-  const {JobId} = useParams()
-  const [input, setInput] = useState({
+  const dispatch = useDispatch()
+  const {JobId} = useParams() //ambil params pada halaman ini jika ada pada paramsnya
+  const [input, setInput] = useState({ //untuk state lokal halaman ini
     id : nanoid(),
     title : "",
     description : "",
@@ -21,64 +24,48 @@ export default function FormCrud() {
   })
   useEffect(()=>{
     if(JobId){
-      getJob()
+      dispatch(detailJob((JobId)))
+        .then((result) => {
+          setInput({
+            id : result.id,
+            title : result.title,
+            description : result.description,
+            companyId : result.companyId,
+            authorId : result.authorId,
+            jobType : result.jobType,
+            expired : result.expired,
+          })
+        }).catch((err) => {
+          console.log(err);
+        });
+
     }
   }, [])
-  const getJob = async () => {
-    try {
-      const jobDetail = await axios({
-        url : `http://localhost:3000/jobs/${JobId}`,
-        method : 'GET'
-      })
-      setInput({
-        id : jobDetail.data.id,
-        title : jobDetail.data.title,
-        description : jobDetail.data.description,
-        companyId : jobDetail.data.companyId,
-        authorId : jobDetail.data.authorId,
-        jobType : jobDetail.data.jobType,
-        expired : jobDetail.data.expired,
-      })
-      console.log(jobDetail, 'ini edit crud detail')
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  const handleOnChange = (e) => {
+ 
+  const handleOnChange = (e) => { //ketika ada perubahan pada form, maka fungsi ini berjalan dan mengubah state
     const { name, value } = e.target
-    setInput({
+    setInput({ // mengeset input menjadi yg terbaru ketika ada perubahan pada form
       ...input,
       [name] : value
     })
   }
 
-  //tinggal menggunakan navigasi jika sudah berhasil
   const handleSubmit = () => {
-    axios({
-      url : 'http://localhost:3000/jobs',
-      method : 'POST',
-      data : input
-    })
-    .then((result) => {
-      console.log(result, 'ini notif berhasil')
-      navigate("/admin-page", { replace: true });
-    }).catch((err) => {
-      console.log(err, 'ini notif err')
-    });
+    dispatch(addJob(input))
+      .then((_) => {
+        navigate("/admin-page", { replace: true })
+      }).catch((err) => {
+        console.log(err)
+      })
   }
 
   const handleUpdate = () => {
-    axios({
-      url : 'http://localhost:3000/jobs/'+JobId,
-      method : 'PUT',
-      data : input
-    })
-    .then((result) => {
-      console.log(result, 'ini notif berhasil')
-      navigate("/admin-page", { replace: true });
-    }).catch((err) => {
-      console.log(err, 'ini notif err')
-    });
+    dispatch(updateJob(input, JobId))
+      .then((_) => {
+        navigate("/admin-page", { replace: true })
+      }).catch((err) => {
+        console.log(err)
+      })
   }
   return (
     <>

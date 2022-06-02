@@ -8,10 +8,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
-import axios from  'axios'
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
+import { fetchJob, destroyJob } from '../store/actions/jobAction';
 
 export default function BasicTable() {
   let navigate = useNavigate();
@@ -21,42 +21,19 @@ export default function BasicTable() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
-    getAllJobs()
+    dispatch(fetchJob())
   }, [])
-
-
-  const getAllJobs = async () => {
-    try {
-      const allJobs = await axios({
-        url : 'http://localhost:3000/jobs',
-        method : 'GET'
+ 
+  const deleteJob = (jobId) => {
+    dispatch(destroyJob(jobId))
+      .then((result) => {
+        dispatch(fetchJob()) //panggil lg/dispatch lg jika ingin update data jobs
+        navigate("/admin-page", { replace: true });
+      }).catch((err) => {
+        console.log(err)
       })
-      dispatch({
-        type : 'getAllJobs',
-        payload : {
-          jobs : allJobs.data,
-          loading : false
-        }
-      })
-    } catch (error) {
-      console.log(error);
-    }
   }
 
-  //tinggal menggunakan navigasi jika sudah berhasil
-  const deleteJob = async (jobId) => {
-    try {
-      const destroyJob = await axios({
-        url : 'http://localhost:3000/jobs/'+jobId,
-        method : 'DELETE'
-      })
-      console.log(destroyJob)
-      getAllJobs()
-      navigate("/admin-page", { replace: true });
-    } catch (error) {
-      console.log(error);
-    }
-  }
   const detailJob = async (jobId) => {
     navigate("/crud-jobs/"+jobId, { replace: true });
   }
