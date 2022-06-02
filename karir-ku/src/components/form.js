@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
-import axios from  'axios'
 import { nanoid } from 'nanoid'
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux'
@@ -100,7 +99,6 @@ export default function FormCrud() {
         <Button onClick={handleSubmit} variant="contained">Add</Button>
         }
       </Box>
-      {JSON.stringify(input)}
     </>
   );
 }

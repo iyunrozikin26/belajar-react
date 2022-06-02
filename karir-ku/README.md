@@ -23,8 +23,8 @@
 - [x] fitur delete tanpa thunk
 - [x] 1 form, 1 url, 2 fungsi (add, edit)
 - [x] CRUD menggunakan thunk middleware
-
+- [x] get all data companies
 ### Report
-`Masih Mengatur Layouting dan belum CRUD data`
+`Masih Mengatur Layouting`
 `Belum fungsi Login`
 `Belum Membedakan link antara admin dengan user biasa`
