@@ -1,7 +1,9 @@
 export default function Jobs() {
   return (
     <>
-      <h1>Hellow</h1>
+      <center>
+        <h1>Hellow</h1>
+      </center>
     </>
   );
 }
