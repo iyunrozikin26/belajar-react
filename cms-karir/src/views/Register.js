@@ -2,8 +2,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Linked from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -12,6 +10,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux'
+import { addUser } from '../store/actions/userAction';
 
 function Copyright(props) {
   return (
@@ -28,17 +29,31 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+export default function Register() {
+  const dispatch = useDispatch()
+  const [regis, setRegister] = useState({
+    username : "",
+    email : "",
+    password : "",
+    role : "",
+    phone : "",
+    address : ""
+  })
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target
+    setRegister({...regis, [name]: value})
+    
+  }
+
+  const handleSubmitData = (e) => {
+    e.preventDefault()
+    dispatch(addUser(regis))
+  }
 
   return (
+    <>
+    {JSON.stringify(regis)}
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -54,18 +69,30 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign up
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmitData} noValidate sx={{ mt: 1 }}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="username"
+              label="username"
+              name="username"
+              autoComplete="username"
+              autoFocus
+              onChange={handleOnChange}
+            />
             <TextField
               margin="normal"
               required
               fullWidth
               id="email"
-              label="Email Address"
+              label="email Address"
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleOnChange}
             />
             <TextField
               margin="normal"
@@ -76,10 +103,40 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleOnChange}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="role"
+              label="role"
+              name="role"
+              autoComplete="role"
+              autoFocus
+              onChange={handleOnChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="phone"
+              label="phone"
+              name="phone"
+              autoComplete="phone"
+              autoFocus
+              onChange={handleOnChange}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="address"
+              label="address"
+              name="address"
+              autoComplete="address"
+              autoFocus
+              onChange={handleOnChange}
             />
             <Button
               type="submit"
@@ -87,7 +144,7 @@ export default function Login() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Sign Up
             </Button>
             <Grid container>
               <Grid item xs>
@@ -96,8 +153,8 @@ export default function Login() {
                 </Linked>
               </Grid>
               <Grid item>
-                <Link to="/register">
-                  Don't have an account? Sign Up
+                <Link to="/login">
+                  Do you have an account? Sign in
                 </Link>
               </Grid>
             </Grid>
@@ -106,5 +163,6 @@ export default function Login() {
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
+  </>
   );
 }

@@ -11,6 +11,10 @@ const ProtectedRoute = ({ user, to,  children }) => {
     return <Navigate to="/" replace />;
   }
 
+  if (user && to === 'register') {
+    return <Navigate to="/" replace />;
+  }
+
   return children;
 };
 

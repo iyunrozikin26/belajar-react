@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid'
+// import { nanoid } from 'nanoid'
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { detailJob, addJob, updateJob } from '../store/actions/jobAction';
@@ -14,7 +14,7 @@ export default function FormCrud() {
   const dispatch = useDispatch()
   const {JobId} = useParams() //ambil params pada halaman ini jika ada pada paramsnya
   const [input, setInput] = useState({ //untuk state lokal halaman ini
-    id : nanoid(),
+    // id : nanoid(),
     title : "",
     description : "",
     companyId : "",
