@@ -25,6 +25,7 @@
 - [x] CRUD menggunakan thunk middleware
 - [x] get all data companies
 - [x] memindahkan fungsi CRUD ke folder admin cms
+
 ### Report
 `Masih Mengatur Layouting`
 `Belum fungsi Login`
