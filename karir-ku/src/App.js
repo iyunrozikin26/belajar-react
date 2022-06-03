@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from './components/navbar.js'
-import {Home,Jobs, DetailJob, Login, AdminPage, NotFound, ProtectedRoute, Companies} from './pages'
-import Form from "./components/form.js";
+import {Home,Jobs, DetailJob,NotFound, Companies} from './pages'
+// import Form from "./components/form.js";
 import { Routes, Route } from "react-router-dom";
 
 export default function App() {
@@ -14,7 +14,7 @@ export default function App() {
       <Route path='/' element={<Home />}/>
       <Route path='jobs' element={<Jobs />}/>
       <Route path='companies' element={<Companies />}/>
-      <Route path='login' element={
+      {/* <Route path='login' element={
         <ProtectedRoute user={user} to={'login'}>
           <Login />
       </ProtectedRoute>
@@ -33,7 +33,7 @@ export default function App() {
         <ProtectedRoute user={user} to={'add'}>
           <Form />
         </ProtectedRoute>
-        }/>
+        }/> */}
       <Route path='jobs/detail/:JobId' element={<DetailJob />}/>
       <Route path='*' element={<NotFound />}/>
     </Routes>

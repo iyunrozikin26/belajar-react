@@ -12,9 +12,7 @@ function Navbar() {
   const [pages, setPages] = useState([
     ["Jobs","jobs"],
     ["Companies","companies"],
-    ["Skills", "skills"],
-    ["Login", "login"],
-    ["Data", "admin-page"]
+    ["Skills", "skills"]
   ])
   
   return (
