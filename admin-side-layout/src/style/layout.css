@@ -1,5 +1,11 @@
+.navigationBar {
+    background: rgb(22, 31, 72);
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .tableMovies {
-    background-color: rgb(210, 230, 230);
+    background-color: rgb(210, 230, 230, 0.4);
     border: 5px;
     width: 80%;
     height: auto;
@@ -10,7 +16,7 @@
 }
 
 .tableBody tr {
-    background-color: rgb(210, 230, 230);
+    background-color: rgb(210, 230, 230, 0.4);
     text-align: justify;
 }
 
@@ -19,13 +25,16 @@
     border-radius: 2px;
 }
 .formMovies {
+    border-radius: 5px;
+    background-color: rgb(210, 230, 230, 0.2);
+    padding: 20px;
     width: 30%;
     margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
+    height: auto;
 }
 .formMovies span {
-    /* text-align: center; */
     display: flex;
     justify-content: center;
 }
@@ -38,9 +47,14 @@
     margin-top: 20px;
     float: right;
 }
+.formMovies form button:hover {
+    width: 31%;
+    /* transition: all s; */
+}
+
 .formLogin {
     background-color: aqua;
-    background: url('https://i.pinimg.com/originals/74/c4/a7/74c4a7ee958e1fab46c614f04d1501e9.jpg');
+    background: url("https://i.pinimg.com/originals/74/c4/a7/74c4a7ee958e1fab46c614f04d1501e9.jpg");
     background-size: cover;
     height: 100vh;
     /* margin-top: 20px; */
@@ -55,17 +69,17 @@
     /* align-items: center; */
 }
 
-.layoutlogin{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   width: 350px;
-   height: 450px;
-   border-bottom-left-radius: 30px;
-   border-top-left-radius: 30px;
-   background: rgb(210, 230, 230,.2);
+.layoutlogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: auto;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    background: rgb(210, 230, 230, 0.2);
 }
-.image img{
-   background: rgb(210, 230, 230,.9);
-   width: 500px;
+.image img {
+    background: rgb(210, 230, 230, 0.9);
+    width: 500px;
 }

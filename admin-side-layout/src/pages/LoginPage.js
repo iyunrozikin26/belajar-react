@@ -1,7 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+    const navigate = useNavigate()
+    const submitLogin = (e) => {
+        e.preventDefault();
+        localStorage.setItem("access_token", "ini_rahasia_ilahi");
+        navigate('/movies')
+        // console.log("LOGIN BUTTON");
+    };
     return (
         <>
             <div className="formLogin">
@@ -9,7 +16,7 @@ const LoginPage = () => {
                     <div className="layoutlogin relative  shadow dark:bg-gray-700">
                         <div className="py-6 px-6 lg:px-8">
                             <h3 className="mb-4 text-3xl font-medium text-white dark:text-white">Sign in to our platform</h3>
-                            <form className="space-y-6" action="#">
+                            <form className="space-y-6" onSubmit={submitLogin}>
                                 <div>
                                     <label className="block mb-2 text-sm font-bold text-white dark:text-gray-300">Your email</label>
                                     <input

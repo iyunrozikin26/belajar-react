@@ -1,8 +1,9 @@
 import React from "react";
 import "./style/layout.css";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Outlet } from "react-router-dom";
 // VALIDASI login register
+import IsLogin from "./guard/IsLogin";
 // PAGES
 import HomePage from "./pages/HomePage";
 import MovieList from "./pages/MovieList";
@@ -18,10 +19,38 @@ function App() {
         <>
             <Routes>
                 <Route path="/" element={<HomePage />}>
-                    <Route index element={<MovieList />} />
-                    <Route index path="movies" element={<MovieList />} />
-                    <Route path="movies/create" element={<CreateMovie />} />
-                    <Route path="movies/:movieId/edit" element={<UpdateMovie />} />
+                    <Route
+                        index
+                        element={
+                            <IsLogin>
+                                <MovieList />
+                            </IsLogin>
+                        }
+                    />
+                    <Route
+                        path="movies"
+                        element={
+                            <IsLogin>
+                                <MovieList />
+                            </IsLogin>
+                        }
+                    />
+                    <Route
+                        path="movies/create"
+                        element={
+                            <IsLogin>
+                                <CreateMovie />
+                            </IsLogin>
+                        }
+                    />
+                    <Route
+                        path="movies/:movieId/edit"
+                        element={
+                            <IsLogin>
+                                <UpdateMovie />
+                            </IsLogin>
+                        }
+                    />
                     <Route path="login" element={<LoginPage />} />
                     <Route path="register" element={<RegisterPage />} />
                     <Route path="about" element={<AboutPage />} />
