@@ -6,9 +6,11 @@ import "../style/layout.css";
 import TableMovies from "../components/TableMovies";
 
 const MovieList = () => {
-    const { movies, moviesError, moviesLoading } = useSelector((state) => state.movieReducer);
+    const { movies, moviesError, moviesLoading, search } = useSelector((state) => state.movieReducer);
+    console.log(search, "====== ini dari movieList");
 
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(fetchMovies());
     }, [dispatch]);
@@ -46,7 +48,7 @@ const MovieList = () => {
                                     </th>
                                 </tr>
                             </thead>
-                            <TableMovies send={movies} />
+                            <TableMovies props1={movies} props2={search}  />
                         </table>
                     </>
                 )}

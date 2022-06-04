@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE } from "../actionTypes/movieType";
+import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, SET_SEARCH } from "../actionTypes/movieType";
 
 const moviesUrl = "http://localhost:3001/movies";
 
@@ -14,6 +14,10 @@ const setMoviesError = (payload) => {
 };
 export const setSingleMovie = (payload) => {
     return { type: GET_SINGLE_MOVIE, payload };
+};
+
+export const setSearch = (payload) => {
+    return { type: SET_SEARCH, payload };
 };
 
 export const fetchMovies = () => {

@@ -1,10 +1,11 @@
-import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE } from "../actionTypes/movieType";
+import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, SET_SEARCH } from "../actionTypes/movieType";
 
 const initialState = {
     movies: [],
     moviesError: null,
     moviesLoading: false,
     movie: {},
+    search:""
 };
 
 function movieReducer(state = initialState, action) {
@@ -18,6 +19,8 @@ function movieReducer(state = initialState, action) {
             return { ...state, moviesLoading: payload };
         case GET_SINGLE_MOVIE:
             return { ...state, movie: payload };
+        case SET_SEARCH:
+            return { ...state, search: payload };
         default:
             return state;
     }
