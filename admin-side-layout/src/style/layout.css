@@ -1,0 +1,71 @@
+.tableMovies {
+    background-color: rgb(210, 230, 230);
+    border: 5px;
+    width: 80%;
+    height: auto;
+    word-wrap: normal;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.tableBody tr {
+    background-color: rgb(210, 230, 230);
+    text-align: justify;
+}
+
+.tableBody tr img {
+    width: 120px;
+    border-radius: 2px;
+}
+.formMovies {
+    width: 30%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.formMovies span {
+    /* text-align: center; */
+    display: flex;
+    justify-content: center;
+}
+
+.formMovies form {
+    margin-top: 20px;
+}
+.formMovies form button {
+    margin-left: 5px;
+    margin-top: 20px;
+    float: right;
+}
+.formLogin {
+    background-color: aqua;
+    background: url('https://i.pinimg.com/originals/74/c4/a7/74c4a7ee958e1fab46c614f04d1501e9.jpg');
+    background-size: cover;
+    height: 100vh;
+    /* margin-top: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back {
+    display: flex;
+    flex-direction: row;
+    border-radius: 2px;
+    /* align-items: center; */
+}
+
+.layoutlogin{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 350px;
+   height: 450px;
+   border-bottom-left-radius: 30px;
+   border-top-left-radius: 30px;
+   background: rgb(210, 230, 230,.2);
+}
+.image img{
+   background: rgb(210, 230, 230,.9);
+   width: 500px;
+}
