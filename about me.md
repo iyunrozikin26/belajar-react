@@ -30,3 +30,4 @@
 `Masih Mengatur Layouting`
 `Belum fungsi Login`
 `Belum Membedakan link antara admin dengan user biasa`
+`ada kesalahan saat commit server, dikarenakan lupa membuat gitignore`
