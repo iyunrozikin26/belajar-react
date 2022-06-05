@@ -2,7 +2,7 @@
   "Jobs": [
     {
       "id": 1,
-      "title": "frontend web developer",
+      "title": "frontend web developer 1",
       "description": "ini sebuah deskripsi frontend",
       "companyId": 1,
       "authorId": 1,
@@ -26,6 +26,15 @@
       "authorId": 1,
       "jobType": "full time",
       "expired": "2022-12-12"
+    },
+    {
+      "id": 4,
+      "title": "qw",
+      "description": "",
+      "companyId": "",
+      "authorId": "",
+      "jobType": "",
+      "expired": ""
     }
   ],
   "Companies": [
@@ -61,5 +70,6 @@
         }
       }
     ]
-  }
+  },
+  "Users": []
 }
