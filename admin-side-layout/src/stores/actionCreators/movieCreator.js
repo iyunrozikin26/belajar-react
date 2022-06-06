@@ -3,13 +3,13 @@ import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, SET
 
 const moviesUrl = "http://localhost:3001/movies";
 
-const setMovies = (payload) => {
+export const setMovies = (payload) => {
     return { type: SET_MOVIES, payload };
 };
-const setMoviesLoading = (payload) => {
+export const setMoviesLoading = (payload) => {
     return { type: SET_MOVIES_LOADING, payload };
 };
-const setMoviesError = (payload) => {
+export const setMoviesError = (payload) => {
     return { type: SET_MOVIES_ERROR, payload };
 };
 export const setSingleMovie = (payload) => {

@@ -13,7 +13,7 @@ function CardMovies() {
             method: "delete",
             url: "http://localhost:3000/movies/" + id,
         })
-            .then(({ data }) => {
+            .then(({ data }) => {cd 
                 console.log(data);
                 navigate("/movies");
             })
@@ -23,6 +23,7 @@ function CardMovies() {
     };
 
     const { movies, moviesLoading, moviesError } = useSelector((state) => state.moviesReducer);
+
     const dispatch = useDispatch();
 
     useEffect(() => {

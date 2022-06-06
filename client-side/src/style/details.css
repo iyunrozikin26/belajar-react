@@ -1,0 +1,33 @@
+.card-details {
+    height: 200vh;
+    /* background: tomato; */
+    /* display: flex; */
+}
+.details-i {
+    margin-bottom: 20px;
+    background-color: #faebd7;
+    position: relative;
+    margin-left: 32px;
+    width: 90%;
+    /* margin-right: auto; */
+}
+.details-ii {
+    margin-bottom: 20px;
+    background-color: #faebd7;
+    position: relative;
+    margin-left: auto;
+    width: 90%;
+    margin-right: auto;
+}
+.details-i .image-details {
+    margin-top: 8px;
+
+    width: 98%;
+    height: 80vh;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card-movies-genre {
+    width: 100%;
+}

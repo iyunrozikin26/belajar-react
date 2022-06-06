@@ -14,8 +14,6 @@ const SearchMovies = () => {
         e.preventDefault();
         dispatch(setSearch(search));
     };
-    // console.log(search);
-
     return (
         <>
             <div className="w-full float-right flex justify-end mt-2">

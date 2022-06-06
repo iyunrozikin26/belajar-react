@@ -1,35 +1,33 @@
-import React from "react";
-import { Card, Col, Row, Container, Image } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
 
-function CardMovies({ movies }) {
+const CardMovies = (props) => {
+    let { prop1 } = props;
+
     return (
-        <div>
-            <Container>
-                <br />
-                <h1 id="trending" className="text-white">
-                    TRENDING MOVIES
-                </h1>
-                <Row>
-                    {movies.map((movie, i) => {
-                        return (
-                            <Col md={3} className="movieWrapper">
-                                <Card className="bg-dark text-white movieImage border border-3">
-                                    <Image src={movie.imgUrl} alt={movie.title} className="images" />
-                                    <div className="bg-dark">
-                                        <div className="p-2 text-white">
-                                            <Card.Title className="text-center">{movie.title}</Card.Title>
-                                            <Card.Text className="text-left">{movie.synopsis}</Card.Text>
-                                            <Card.Text className="text-left">Rating : {movie.rating}</Card.Text>
+        <div className="card-page">
+            <div class="card-container">
+                {prop1.map((movie, i) => {
+                    return (
+                        <div className="flex flex-col justify-center items-center text-whi">
+                            <div class="card" key={movie.id}>
+                                <div class="box">
+                                    <div class="content flex flex-col">
+                                        <img src={movie.imgUrl} />
+                                        <div className="flex justify-between mt-1">
+                                            <p className="rating text-yellow-300 text-left font-bold text-sm pl-3 pt-1 bg-zinc-700 rounded w-11">{movie.rating}</p>
+                                            <Link to={`movies/${movie.id}/details`} className="watch text-white bg-red-500 w-24 h-7 rounded items-center flex text-center justify-center">
+                                                <button>Watch</button>
+                                            </Link>
                                         </div>
                                     </div>
-                                </Card>
-                            </Col>
-                        );
-                    })}
-                </Row>
-            </Container>
+                                </div>
+                            </div>
+                            <h3>{movie.title}</h3>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
-}
-
+};
 export default CardMovies;

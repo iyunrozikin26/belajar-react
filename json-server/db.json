@@ -9,23 +9,23 @@
             "GenreId": 3
         },
         {
-            "id": 2,
-            "title": "Avenger Invinity War",
-            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "rating": 7.8,
-            "imgUrl": "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/2629bad87568290e63a1f62e81fd2d9bf3703268cdbc6ff38a02a6c5de0f0e29._RI_V_TTW_.jpg",
-            "GenreId": 1
-        },
-        {
             "id": 3,
             "title": "Doctor Strange",
-            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-            "rating": 7.8,
+            "synopsis": "adasdaacdfdav",
+            "rating": "8.5",
             "imgUrl": "https://m.media-amazon.com/images/M/MV5BNWM0ZGJlMzMtZmYwMi00NzI3LTgzMzMtNjMzNjliNDRmZmFlXkEyXkFqcGdeQXVyMTM1MTE1NDMx._V1_.jpg",
             "GenreId": 2
         },
         {
             "id": 4,
+            "title": "The Batman",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BMDdmMTBiNTYtMDIzNi00NGVlLWIzMDYtZTk3MTQ3NGQxZGEwXkEyXkFqcGdeQXVyMzMwOTU5MDk@._V1_.jpg",
+            "GenreId": 1
+        },
+        {
+            "id": 16,
             "title": "The Batman",
             "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
             "rating": 7.8,
@@ -50,8 +50,73 @@
         },
         {
             "id": 7,
-            "title": "Mission Impossible",
+            "title": "Mission Impossible 2",
+            "synopsis": "Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet's exclusive supply of the most precious resource in existence, only those who can conquer their own fear will survive.",
+            "rating": 7.8,
+            "imgUrl": "https://upload.wikimedia.org/wikipedia/en/f/ff/MI_%E2%80%93_Fallout.jpg",
+            "GenreId": 3
+        },
+        {
+            "title": "Dune 2021",
+            "synopsis": "Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet's exclusive supply of the most precious resource in existence, only those who can conquer their own fear will survive.",
+            "imgUrl": "https://media.services.cinergy.ch/media/box1600/7e002116c5a8eb74855f3e081112cca47d5930ca.jpg",
+            "rating": "6.5",
+            "GenreId": "2",
+            "id": 8
+        },
+        {
+            "title": "Spiderman: No-Way Home",
+            "synopsis": "With Spider-Man's identity now revealed, our friendly neighborhood web-slinger is unmasked and no longer able to separate his normal life as Peter Parker from the high stakes of being a superhero. When Peter asks for help from Doctor Strange, the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.",
+            "imgUrl": "https://i.pinimg.com/736x/92/a1/4e/92a14eace9ac67bc59b06806541e00fd.jpg",
+            "rating": "8.0",
+            "GenreId": "3",
+            "id": 9
+        },
+        {
+            "title": "Avatar",
+            "synopsis": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
+            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2jXA8g4Ky_XG-0n8YFGIr0oQ-OTsO7lUGXHPpfm-iFwFDselkXUixPqYRl6f-SQl1JQ&usqp=CAU",
+            "rating": "9",
+            "GenreId": "1",
+            "id": 10
+        },
+        {
+            "title": "Avatar",
+            "synopsis": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
+            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2jXA8g4Ky_XG-0n8YFGIr0oQ-OTsO7lUGXHPpfm-iFwFDselkXUixPqYRl6f-SQl1JQ&usqp=CAU",
+            "rating": "9",
+            "GenreId": "1",
+            "id": 11
+        },
+        {
+            "title": "Avatar",
+            "synopsis": "The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.",
+            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ2jXA8g4Ky_XG-0n8YFGIr0oQ-OTsO7lUGXHPpfm-iFwFDselkXUixPqYRl6f-SQl1JQ&usqp=CAU",
+            "rating": "9",
+            "GenreId": "1",
+            "id": 12
+        },
+
+        {
+            "id": 13,
+            "title": "The Lost City",
             "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://cdn1-production-images-kly.akamaized.net/IFG2sonwabO0IQhH-yNQDXjcK_M=/640x853/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3972489/original/052846900_1648021027-mv5bmmiwyzfhodaty2i1ys00zddmltkyywqtzji5ndiwmdc2mjeyxkeyxkfqcgdeqxvyodk4otc3mty._v1_.jpg",
+            "GenreId": 3
+        },
+        {
+            "id": 14,
+            "title": "Uncharted",
+            "synopsis": "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+            "rating": 7.8,
+            "imgUrl": "https://m.media-amazon.com/images/M/MV5BMWEwNjhkYzYtNjgzYy00YTY2LThjYWYtYzViMGJkZTI4Y2MyXkEyXkFqcGdeQXVyNTM0OTY1OQ@@._V1_.jpg",
+            "GenreId": 3
+        },
+        {
+            "id": 15,
+            "title": "Mission Impossible 2",
+            "synopsis": "Paul Atreides, a brilliant and gifted young man born into a great destiny beyond his understanding, must travel to the most dangerous planet in the universe to ensure the future of his family and his people. As malevolent forces explode into conflict over the planet's exclusive supply of the most precious resource in existence, only those who can conquer their own fear will survive.",
             "rating": 7.8,
             "imgUrl": "https://upload.wikimedia.org/wikipedia/en/f/ff/MI_%E2%80%93_Fallout.jpg",
             "GenreId": 3
@@ -69,6 +134,44 @@
         {
             "id": 3,
             "name": "adventure"
+        },
+        {
+            "id": 4,
+            "name": "horror"
+        },
+        {
+            "id": 5,
+            "name": "thriller"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "firstName": "Agus",
+            "lastName": "Wakwao",
+            "email": "user1",
+            "password": "112233"
+        },
+        {
+            "id": 2,
+            "firstName": "Tedi",
+            "lastName": "Surkasi",
+            "email": "user2",
+            "password": "112233"
+        },
+        {
+            "firstName": "sdasdsa",
+            "lastName": "dasdee",
+            "email": "sdsdsdsd@gmail.com",
+            "password": "112233",
+            "id": 3
+        },
+        {
+            "firstName": "sdasdsa",
+            "lastName": "dasdee",
+            "email": "sdsdsdsd@gmail.com",
+            "password": "112233",
+            "id": 4
         }
     ]
 }

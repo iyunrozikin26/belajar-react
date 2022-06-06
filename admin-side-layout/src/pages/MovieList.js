@@ -7,7 +7,7 @@ import TableMovies from "../components/TableMovies";
 
 const MovieList = () => {
     const { movies, moviesError, moviesLoading, search } = useSelector((state) => state.movieReducer);
-    console.log(search, "====== ini dari movieList");
+    // console.log(search, "====== ini dari movieList");
 
     const dispatch = useDispatch();
 

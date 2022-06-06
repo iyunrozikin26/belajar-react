@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body .card-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, .2);
+}
+
+body .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+}
+
+body .card-container .card {
+    position: relative;
+    min-width: 200px;
+    height: 300px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 10px 10px;
+    transition: 0.5s;
+}
+
+body .card-container .card .box {
+    position: absolute;
+    top: -15px;
+    left: 5px;
+    right: 5px;
+    bottom: -10px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+body .card-container .card .box:hover {
+    transform: translateY(-12px);
+}
+
+body .card-container .card .box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    /* background: rgba(255, 255, 255, 0.03); */
+}
+
+body .card-container .card .box .content {
+    padding: 20px;
+    text-align: center;
+}
+body .card-container .card .box img {
+    text-align: center;
+    width: 280px;
+    height: 220px;
+}
+
+/*  */
+
+body h3 {
+    width: 210px;
+    font-size: 0.9rem;
+    color: #fff;
+    z-index: 1;
+    transition: 0.5s;
+    margin-top: -30px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+body .card-container .card .box .content a:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    background: rgb(238, 183, 183);
+    color: #000;
+}

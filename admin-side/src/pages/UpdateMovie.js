@@ -6,7 +6,7 @@ import { getSingleMovie, updatedMovie } from "../store/actionCreator/creator";
 
 function UpdateMovies() {
     const { movie } = useSelector((state) => state.moviesReducer);
-
+    
     const [newMovie, setNewMovie] = useState(movie);
 
     const handleUpdate = (e) => {
