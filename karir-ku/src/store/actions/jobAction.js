@@ -10,7 +10,7 @@ export const fetchJob = () => {
         dispatch({
           type : 'getAllJobs',
           payload : {
-            jobs : result.data,
+            jobs : result.data.data,
             loading : false
           }
         })

@@ -25,7 +25,10 @@ export const destroyJob = (jobId) => {
     return new Promise ((resolve, reject)=> { //gunakan promise agar bisa navigate di admin page
       axios({
         url : 'http://localhost:3000/jobs/'+jobId,
-        method : 'DELETE'
+        method : 'DELETE',
+        headers : {
+          access_token : localStorage.getItem('access_token')
+        }
       })
         .then((result) => {
           fetchJob()
