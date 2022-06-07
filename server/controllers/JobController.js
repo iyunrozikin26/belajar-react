@@ -16,4 +16,23 @@ module.exports = class Controller {
         next(err)
       });
   }
+
+  static addJobs(req, res, next){
+    const data = {
+      title : req.body.title,
+      description : req.body.description,
+      companyId : req.body.companyId,
+      authorId : req.user.id,
+      jobType : req.body.jobType
+    }
+    Job.create(data)
+      .then((result) => {
+        res.status(200).json({status : true, data : {
+          id : result.id,
+          title : result.title
+        }})
+      }).catch((err) => {
+        next(err)
+      });
+  }
 }

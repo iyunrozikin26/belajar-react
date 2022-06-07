@@ -5,5 +5,6 @@ module.exports = (err, req, res, next) => {
     statusCode = 400
     message = err.errors[0].message
   }
+  
   res.status(statusCode).json({status : false, message})
 }
