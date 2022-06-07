@@ -15,5 +15,5 @@ app.use(allRoutes)
 app.use(errHandler)
 
 app.listen(port, () => {
-  console.log(`server running on ${port}`)
+  console.log(`Server Running On ${port}`)
 })
