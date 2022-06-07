@@ -1,5 +1,5 @@
 const { verify } = require("../helper/jwt")
-
+const {Job} = require ('../models')
 const checkLogin = (req, res, next) => {
   try {
     const access_token = req.headers.access_token
@@ -20,10 +20,22 @@ const checkLogin = (req, res, next) => {
   }
 }
 
-// const checkOwner = (req, res, next) => {
-
-// }
+const checkOwner = (req, res, next) => {
+  Job.findByPk(req.params.jobId)
+    .then((result) => {
+      if(!result){
+        throw {status : 404, message : 'data tidak ditemukan'}
+      }
+      if(result.authorId === req.user.id){
+        next()
+      }else{
+        throw {status : 403, message : 'tidak ada akses ke sini'}
+      }
+    }).catch((err) => {
+      next(err)
+    });
+}
 
 module.exports = {
-  checkLogin
+  checkLogin, checkOwner
 }

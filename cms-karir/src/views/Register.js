@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 import { useDispatch } from 'react-redux'
 import { addUser } from '../store/actions/userAction';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (

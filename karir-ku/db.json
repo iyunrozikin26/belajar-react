@@ -71,5 +71,24 @@
       }
     ]
   },
-  "Users": []
+  "Users": [
+    {
+      "username": "qwww",
+      "email": "qwww@as",
+      "password": "qwertyu",
+      "role": "admin",
+      "phone": "123",
+      "address": "qwert",
+      "id": 1
+    },
+    {
+      "username": "qwert",
+      "email": "qwert@mail.com",
+      "password": "123456",
+      "role": "admin",
+      "phone": "1234",
+      "address": "qwert",
+      "id": 2
+    }
+  ]
 }

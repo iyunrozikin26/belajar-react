@@ -24,10 +24,16 @@
 - [x] 1 form, 1 url, 2 fungsi (add, edit)
 - [x] CRUD menggunakan thunk middleware
 - [x] get all data companies
-- [x] memindahkan fungsi CRUD ke folder admin cms
+- [x] memindahkan fungsi CRUD ke folder 
+admin cms
 - [x] init server
+- [x] seed data company
+- [x] fitur register
+- [x] fitur login
+- [x] fitur getall jobs
+- [x] fitur add job
+- [x] fitur authentication
+- [x] fitur transaction antara table job dengan company
 ### Report
 `Masih Mengatur Layouting`
 `Belum fungsi Login`
-`Belum Membedakan link antara admin dengan user biasa`
-`ada kesalahan saat commit server, dikarenakan lupa membuat gitignore`
