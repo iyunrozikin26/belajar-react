@@ -1,3 +1,5 @@
+const { compare } = require('../helper/bcrypt');
+const { sign } = require('../helper/jwt');
 const {User} = require('../models')
 
 module.exports = class Controller {
@@ -18,6 +20,29 @@ module.exports = class Controller {
           phoneNumber : result.phoneNumber,
           address : result.address
         }})
+      }).catch((err) => {
+        next(err)
+      });
+  }
+
+  static login (req, res, next) {
+    User.findOne({
+      where : {
+        email : req.body.email
+      }
+    })
+      .then((result) => {
+        if(!result){
+          throw {status : 401, message : 'email/password salah'}
+        }else {
+          const check = compare(req.body.password, result.password)
+          if (!check) {
+            throw {status : 401, message : 'email/password salah'}
+          } else {
+            const access_token = sign({id : result.id, email : result.email})
+            res.status(200).json({access_token})
+          }
+        }
       }).catch((err) => {
         next(err)
       });

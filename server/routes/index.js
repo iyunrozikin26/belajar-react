@@ -7,6 +7,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/register', UserController.register)
+router.post('/login', UserController.login)
 
 router.use('/jobs', JobRouter)
 
