@@ -11,7 +11,7 @@ module.exports = class Controller {
       }]
     })
       .then((result) => {
-        res.status(200).json({status : 'success', data : result})
+        res.status(200).json({status : true, data : result})
       }).catch((err) => {
         next(err)
       });
