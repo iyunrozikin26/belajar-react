@@ -10,7 +10,7 @@ export const fetchJob = () => {
         dispatch({
           type : 'getAllJobs',
           payload : {
-            jobs : result.data,
+            jobs : result.data.data,
             loading : false
           }
         })
@@ -59,7 +59,10 @@ export const addJob = (input) => {
       axios({
         url : 'http://localhost:3000/jobs',
         method : 'POST',
-        data : input
+        data : input,
+        headers : {
+          access_token : localStorage.getItem('access_token')
+        }
       })
         .then((result) => {
           resolve(result)
@@ -76,7 +79,10 @@ export const updateJob = (input, JobId) => {
       axios({
         url : 'http://localhost:3000/jobs/'+JobId,
         method : 'PUT',
-        data : input
+        data : input,
+        headers : {
+          access_token : localStorage.getItem('access_token')
+        }
       })
       .then((result) => {
         resolve(result)

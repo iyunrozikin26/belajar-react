@@ -13,27 +13,32 @@ export default function FormCrud() {
   let navigate = useNavigate();
   const dispatch = useDispatch()
   const {JobId} = useParams() //ambil params pada halaman ini jika ada pada paramsnya
-  const [input, setInput] = useState({ //untuk state lokal halaman ini
-    // id : nanoid(),
+  const [input, setInput] = useState({
+    name : "",
+    companyLogo : "",
+    location : "",
+    email : "",
+    descriptionCompany : "",
     title : "",
-    description : "",
-    companyId : "",
-    authorId : "",
-    jobType : "",
-    expired : "",
+    descriptionJob : "",
+    jobType : ""
+
   })
   useEffect(()=>{
     if(JobId){
       dispatch(detailJob((JobId)))
         .then((result) => {
+          console.log(result)
           setInput({
-            id : result.id,
-            title : result.title,
-            description : result.description,
-            companyId : result.companyId,
-            authorId : result.authorId,
-            jobType : result.jobType,
-            expired : result.expired,
+            name : result.data.Company.name,
+            companyLogo : result.data.Company.companyLogo,
+            location : result.data.Company.location,
+            email : result.data.Company.email,
+            descriptionCompany : result.data.Company.description,
+            title : result.data.title,
+            descriptionJob : result.data.description,
+            jobType : result.data.jobType,
+            companyId : result.data.companyId
           })
         }).catch((err) => {
           console.log(err);
@@ -52,7 +57,8 @@ export default function FormCrud() {
 
   const handleSubmit = () => {
     dispatch(addJob(input))
-      .then((_) => {
+      .then((result) => {
+        console.log(result)
         navigate("/", { replace: true })
       }).catch((err) => {
         console.log(err)
@@ -70,6 +76,7 @@ export default function FormCrud() {
   return (
     <>
       <Navbar />
+      <center>
       <Box
         component="form"
         sx={{
@@ -78,21 +85,32 @@ export default function FormCrud() {
         noValidate
         autoComplete="off"
       >
-        <TextField value={input.title} name='title' onChange={handleOnChange} id="standard-basic1" label="Title" variant="standard" /><br/>
+        <TextField value={input.name} name='name' onChange={handleOnChange} id="standard-basic1" label="Name Company" variant="standard" /><br/>
+        <TextField value={input.companyLogo} name='companyLogo' onChange={handleOnChange} id="standard-basic1" label="Logo Company" variant="standard" /><br/>
+        <TextField value={input.location} name='location' onChange={handleOnChange} id="standard-basic1" label="Location Company" variant="standard" /><br/>
+        <TextField value={input.email} name='email' onChange={handleOnChange} id="standard-basic1" label="Email Company" variant="standard" /><br/>
         <TextField
-          value={input.description}
-          name='description'
+          value={input.descriptionCompany}
+          name='descriptionCompany'
           onChange={handleOnChange}
           id="standard-multiline-static"
-          label="Description"
+          label="Description Company"
           multiline
           rows={4}
           variant="standard"
         /><br />
-        <TextField value={input.companyId} name='companyId' onChange={handleOnChange} id="standard-basic3" label="Company" variant="standard" /><br/>
-        <TextField value={input.authorId} name='authorId' onChange={handleOnChange} id="standard-basic4" label="Author" variant="standard" /><br/>
+        <TextField value={input.title} name='title' onChange={handleOnChange} id="standard-basic1" label="Title Jobs" variant="standard" /><br/>
+        <TextField
+          value={input.descriptionJob}
+          name='descriptionJob'
+          onChange={handleOnChange}
+          id="standard-multiline-static"
+          label="Description Job"
+          multiline
+          rows={4}
+          variant="standard"
+        /><br />
         <TextField value={input.jobType} name='jobType' onChange={handleOnChange} id="standard-basic5" label="Job Type" variant="standard" /><br/>
-        <TextField value={input.expired} name='expired' onChange={handleOnChange} id="standard-basic5" label="Expired" variant="standard" /><br/>
         {JobId  && 
           <Button onClick={handleUpdate} variant="contained">Edit</Button>
         }
@@ -100,6 +118,7 @@ export default function FormCrud() {
         <Button onClick={handleSubmit} variant="contained">Add</Button>
         }
       </Box>
+      </center>
     </>
   );
 }

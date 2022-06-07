@@ -34,6 +34,7 @@ admin cms
 - [x] fitur add job
 - [x] fitur authentication
 - [x] fitur transaction antara table job dengan company
+- [x] fitur delete job, fitur update, include ada 4, dan terapkan crud di client, 
 ### Report
 `Masih Mengatur Layouting`
 `Belum fungsi Login`
