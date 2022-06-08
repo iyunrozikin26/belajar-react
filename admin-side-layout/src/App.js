@@ -51,7 +51,14 @@ function App() {
                             </IsLogin>
                         }
                     />
-                    <Route path="login" element={<LoginPage />} />
+                    <Route
+                        path="login"
+                        element={
+                            <IsLogin>
+                                <LoginPage />
+                            </IsLogin>
+                        }
+                    />
                     <Route path="register" element={<RegisterPage />} />
                     <Route path="about" element={<AboutPage />} />
                     <Route path="*" element={<NotFound />} />

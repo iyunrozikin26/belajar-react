@@ -21,12 +21,28 @@
 -   [x] json-server
 -   [x] function Component
 -   [x] client-side
--   [] CRUD admin
+-   [x] CRUD admin
 
 ## Report :
 
 1. CRUD akan diimplementasikan di C3
 1. belum menngerjakan untuk admin-side, masih agak bingung untuk mana yg harus diselesaikan terlebih dahulu
 1. masih memahami tentang materi hooks
+
+---
+
+## W2D5
+
+### Target :
+
+1. ADMIN SIDE
+    - [ done ] CRUD
+    - [ done ] React Router
+    - [ done ] Redux Thunk
+    - [ done ] Protected Route
+    - [ done ] Login dan Register
+1. CLIENT SIDE
+    - [ done ] Read Data
+    - [ done ] Show Details
 
 ---
