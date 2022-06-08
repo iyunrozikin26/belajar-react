@@ -39,6 +39,7 @@ module.exports = class Controller {
         try {
             const user = await User.findByPk(AuthorId);
             const movie = await Movie.findByPk(movieId);
+
             const order = await Order.findOne({ where: { MovieId: movieId } });
 
             // console.log(+user.money);
@@ -46,6 +47,7 @@ module.exports = class Controller {
 
             if (!user) throw { status: 401, message: "you must to login first" };
             if (Number(user.money) < Number(movie.price)) throw { status: 402, message: "your money is not enough" };
+            
             if (order) throw { status: 429, message: "you have ordered this movie" };
 
             const currentMoney = Number(user.money) - Number(movie.price);

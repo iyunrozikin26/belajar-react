@@ -1,13 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { userLogin } from "../stores/actionCreators/userCreator";
 
 const LoginPage = () => {
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const [user, setUserLogin] = useState({
+        email: "",
+        password: "",
+    });
+
+    const changeUser = (e) => {
+        const { name, value } = e.target;
+        setUserLogin({
+            ...user,
+            [name]: value,
+        });
+    };
+
     const submitLogin = (e) => {
         e.preventDefault();
-        localStorage.setItem("access_token", "ini_rahasia_ilahi");
-        navigate('/movies')
-        // console.log("LOGIN BUTTON");
+        // panggil funsti login di creator dan then catch
+        dispatch(userLogin(user))
+            .then((result) => {
+                if (result.role !== "admin") throw { status: 403, message: "Not allowwed to access!, you must be admin" };
+                // console.log(result);
+                localStorage.setItem("access_token", result.access_token);
+                navigate("/");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
     return (
         <>
@@ -20,11 +45,13 @@ const LoginPage = () => {
                                 <div>
                                     <label className="block mb-2 text-sm font-bold text-white dark:text-gray-300">Your email</label>
                                     <input
-                                        type="email"
+                                        type="text"
                                         name="email"
+                                        onChange={changeUser}
+                                        value={user.email}
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                         placeholder="name@company.com"
-                                        required=""
+                                        // required=""
                                     />
                                 </div>
                                 <div>
@@ -32,9 +59,11 @@ const LoginPage = () => {
                                     <input
                                         type="password"
                                         name="password"
+                                        onChange={changeUser}
+                                        value={user.password}
                                         placeholder="••••••••"
                                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                        required=""
+                                        // required=""
                                     />
                                 </div>
                                 <div className="flex justify-between">

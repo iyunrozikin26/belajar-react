@@ -1,11 +1,21 @@
-import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, SET_SEARCH } from "../actionTypes/movieType";
+import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, SET_SEARCH, GET_ALL_GENRE } from "../actionTypes/movieType";
 
 const initialState = {
     movies: [],
     moviesError: null,
     moviesLoading: false,
-    movie: {},
-    search:""
+    movie: {
+        title: "",
+        slug: "ini slug",
+        synopsis: "",
+        trailerUrl: "",
+        imgUrl: "",
+        rating: "",
+        price: "",
+        GenreId: "",
+    },
+    search: "",
+    allGenre: [],
 };
 
 function movieReducer(state = initialState, action) {
@@ -21,6 +31,8 @@ function movieReducer(state = initialState, action) {
             return { ...state, movie: payload };
         case SET_SEARCH:
             return { ...state, search: payload };
+        case GET_ALL_GENRE:
+            return { ...state, allGenre: payload };
         default:
             return state;
     }

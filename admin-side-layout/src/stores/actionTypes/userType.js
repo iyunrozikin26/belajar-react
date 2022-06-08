@@ -1,1 +1,1 @@
-export const SET_USER_REGISTER = "users/register";
+export const SET_USER_LOGIN = "user-login";

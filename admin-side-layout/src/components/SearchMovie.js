@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setSearch } from "../stores/actionCreators/movieCreator";
 
 const SearchMovies = () => {
-    const [search, getSearch] = useState("");
+    const [filter, getSearch] = useState("");
     const dispatch = useDispatch();
 
     const handleSearch = (e) => {
@@ -12,7 +12,7 @@ const SearchMovies = () => {
 
     const submitSearch = (e) => {
         e.preventDefault();
-        dispatch(setSearch(search));
+        dispatch(setSearch(filter));
     };
     return (
         <>
@@ -28,7 +28,7 @@ const SearchMovies = () => {
                         <input
                             type="text"
                             onChange={handleSearch}
-                            value={search}
+                            value={filter}
                             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Search"
                             required=""

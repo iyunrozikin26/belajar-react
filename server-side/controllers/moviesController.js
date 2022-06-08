@@ -56,6 +56,7 @@ class Controller {
         const { movieId } = req.params;
         try {
             let option = {
+                where: { id: movieId },
                 include: [
                     {
                         model: User,
@@ -71,8 +72,11 @@ class Controller {
                     },
                 ],
             };
-            const movie = await Movie.findByPk(movieId, option);
+
+            const movie = await Movie.findOne(option);
+            // const movie = await Movie.findByPk(movieId);
             if (!movie) throw { status: 404, message: "movie is Not Found" };
+
             res.status(200).json(movie);
         } catch (error) {
             console.log(error);
@@ -136,8 +140,6 @@ class Controller {
             res.status(500).json(error);
         }
     }
-
-    
 }
 
 module.exports = Controller;

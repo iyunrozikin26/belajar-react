@@ -13,6 +13,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
+import FormPage from "./pages/Form";
 
 function App() {
     return (
@@ -51,14 +52,23 @@ function App() {
                             </IsLogin>
                         }
                     />
-                    <Route
-                        path="login"
+                    {/* <Route
+                        path="movies/create"
                         element={
                             <IsLogin>
-                                <LoginPage />
+                                <FormPage />
                             </IsLogin>
                         }
                     />
+                    <Route
+                        path="movies/:movieId/edit"
+                        element={
+                            <IsLogin>
+                                <FormPage />
+                            </IsLogin>
+                        }
+                    /> */}
+                    <Route path="login" element={<LoginPage />} />
                     <Route path="register" element={<RegisterPage />} />
                     <Route path="about" element={<AboutPage />} />
                     <Route path="*" element={<NotFound />} />

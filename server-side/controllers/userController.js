@@ -3,7 +3,7 @@ const { signToken } = require("../helpers/jwt");
 const { comparePassword } = require("../helpers/bcrypt");
 
 class Controller {
-    static async postRegister(req, res) {
+    static async postRegisterAdmin(req, res) {
         const { firstName, lastName, email, password } = req.body;
         try {
             const newUser = {
@@ -11,7 +11,32 @@ class Controller {
                 lastName,
                 email,
                 password,
-                role: "costumer",
+                role: "admin",
+                phoneNumber: "edit your phone number",
+                address: "edit your address",
+                money: "top-up your money",
+            };
+
+            const createNewUser = await User.create(newUser);
+
+            res.status(201).json({
+                id: createNewUser.id,
+                email: createNewUser.email,
+            });
+        } catch ({ errors }) {
+            console.log(errors);
+            res.status(403).json(errors[0].message);
+        }
+    }
+    static async postRegisterCust(req, res) {
+        const { firstName, lastName, email, password } = req.body;
+        try {
+            const newUser = {
+                firstName,
+                lastName,
+                email,
+                password,
+                role: "customer",
                 phoneNumber: "edit your phone number",
                 address: "edit your address",
                 money: "top-up your money",

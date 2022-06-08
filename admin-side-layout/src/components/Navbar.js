@@ -69,7 +69,7 @@ const NavigationBar = () => {
                             )}
                         </ul>
                     </div>
-                    <Profile />
+                    {/* <Profile /> */}
                 </div>
             </nav>
             <Outlet />

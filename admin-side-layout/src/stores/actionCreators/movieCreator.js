@@ -1,7 +1,8 @@
 import axios from "axios";
-import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, SET_SEARCH } from "../actionTypes/movieType";
+import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, SET_SEARCH, GET_ALL_GENRE } from "../actionTypes/movieType";
 
 const moviesUrl = "http://localhost:3001/movies";
+const access_token = localStorage.access_token;
 
 export const setMovies = (payload) => {
     return { type: SET_MOVIES, payload };
@@ -19,6 +20,9 @@ export const setSingleMovie = (payload) => {
 export const setSearch = (payload) => {
     return { type: SET_SEARCH, payload };
 };
+export const setAllGenre = (payload) => {
+    return { type: GET_ALL_GENRE, payload };
+};
 
 export const fetchMovies = () => {
     return (dispatch, getState) => {
@@ -31,7 +35,7 @@ export const fetchMovies = () => {
             })
             .then((data) => {
                 console.log(data);
-                dispatch(setMovies(data));
+                dispatch(setMovies(data.rows));
             })
             .catch((error) => dispatch(setMoviesError(error.message)))
             .finally(() => dispatch(setMoviesLoading(false)));
@@ -40,18 +44,21 @@ export const fetchMovies = () => {
 
 export const addNewMovie = (newMovie) => {
     return (dispatch) => {
-        axios({
-            method: "post",
-            url: moviesUrl,
-            data: newMovie,
-        })
-            .then(({ data }) => {
-                console.log(data);
-                dispatch(fetchMovies());
+        return new Promise((resolve, reject) => {
+            axios({
+                method: "post",
+                url: moviesUrl,
+                data: newMovie,
+                headers: { access_token },
             })
-            .catch((err) => {
-                console.log(err);
-            });
+                .then(({ data }) => {
+                    resolve(data);
+                    // dispatch(fetchMovies());
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
     };
 };
 
@@ -73,33 +80,49 @@ export const getSingleMovie = (movieId) => {
 
 export const updatedMovie = (movieId, updateMovie) => {
     return (dispatch) => {
+        return new Promise((resolve, reject) => {
+            axios({
+                method: "patch",
+                url: moviesUrl + "/" + movieId + "/edit",
+                data: updateMovie,
+                headers: { access_token },
+            })
+                .then(({ data }) => {
+                    resolve(data);
+                    // dispatch(fetchMovies());
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        });
+    };
+};
+
+export const deleteMovie = (movieId) => {
+    return (dispatch, getState) => {
         axios({
-            method: "put",
-            url: moviesUrl + "/" + movieId,
-            data: updateMovie,
+            method: "delete",
+            url: moviesUrl + "/" + movieId + "/delete",
+            headers: { access_token },
         })
             .then(({ data }) => {
                 console.log(data);
                 dispatch(fetchMovies());
             })
-            .catch((err) => {
-                console.log(err);
-            });
+            .catch((err) => console.log(err));
     };
 };
 
-export const deleteMovie = (movieId) => {
+export const getAllGenre = () => {
     return (dispatch) => {
         axios({
-            method: "delete",
-            url: moviesUrl + "/" + movieId,
+            method: "get",
+            url: moviesUrl + "/genre",
         })
             .then(({ data }) => {
-                // console.log(data);
-                dispatch(fetchMovies());
+                console.log(data);
+                dispatch(setAllGenre(data));
             })
-            .catch((err) => {
-                console.log(err);
-            });
+            .catch((err) => console.log(err));
     };
 };
