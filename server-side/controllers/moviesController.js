@@ -137,37 +137,7 @@ class Controller {
         }
     }
 
-    static async postTransaction(req, res, next) {
-        const t = await sequelize.transaction();
-
-        const { movieId } = req.params;
-        const AuthorId = req.user.id; // hardcore
-        try {
-            const user = await User.findByPk(AuthorId);
-            const movie = await Movie.findByPk(movieId);
-            const order = await Order.findOne({ where: { MovieId: movieId } });
-
-            // console.log(+user.money);
-            // console.log(+movie.price);
-
-            if (!user) throw { status: 401, message: "you must to login first" };
-            if (Number(user.money) < Number(movie.price)) throw { status: 402, message: "your money is not enough" };
-            if (order) throw { status: 429, message: "you have ordered this movie" };
-
-            const currentMoney = Number(user.money) - Number(movie.price);
-
-            // TRANSACTION PROSES
-            const createdOrder = await Order.create({ MovieId: movieId, AuthorId }, { transaction: t });
-            const updatedUser = await User.update({ money: currentMoney }, { where: { id: AuthorId }, returning: true }, { transaction: t });
-
-            await t.commit();
-            res.status(201).json([updatedUser, order]);
-        } catch (error) {
-            console.log(error);
-            await t.rollback();
-            res.status(error.status).json(error.message);
-        }
-    }
+    
 }
 
 module.exports = Controller;

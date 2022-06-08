@@ -9,6 +9,6 @@ moviesRoute.get("/:movieId", authentication, Controller.readMovie);
 moviesRoute.patch("/:movieId/edit", authentication, Controller.updateMovie);
 moviesRoute.delete("/:movieId/delete", authentication, Controller.deleteMovie);
 
-moviesRoute.post("/:movieId/transaction", Controller.postTransaction);
+// moviesRoute.post("/:movieId/transaction", Controller.postTransaction);
 
 module.exports = moviesRoute;
