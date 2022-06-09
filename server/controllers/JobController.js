@@ -1,15 +1,33 @@
 const {Job, User, Company, sequelize} = require('../models')
+const { Op } = require("sequelize");
 
 module.exports = class Controller {
   static getAllJobs (req, res, next) {
-    Job.findAll({
+    let option = {
       include : [{
         model : User,
         attributes : ['email','role', 'phoneNumber', 'address']
       }, {
         model : Company
       }]
-    })
+    }
+    const search = []
+
+    if(req.query.title){
+      search.push({ title : {[Op.iLike]: `%${req.query.title}%`}})
+    }
+
+    if(req.query.jobType){
+      search.push({ jobType : {[Op.iLike]: `%${req.query.jobType}%`}})
+    }
+
+    if(search.length !== 0){
+      option.where = {
+        [Op.and]: search
+      }
+    }
+    
+    Job.findAll(option)
       .then((result) => {
         res.status(200).json({status : true, data : result})
       }).catch((err) => {
