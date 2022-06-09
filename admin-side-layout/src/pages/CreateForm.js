@@ -34,6 +34,7 @@ const CreateMovie = () => {
         e.preventDefault();
         dispatch(addNewMovie(newMovie))
             .then((result) => {
+                console.log(result);
                 navigate("/movies");
             })
             .catch((err) => console.log(err));

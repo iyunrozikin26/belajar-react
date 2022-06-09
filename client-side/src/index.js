@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import '../src/style/layout.css'
 import "../src/style/details.css";
 import "../src/style/navbar.css";
 import "../src/style/movielist.css";

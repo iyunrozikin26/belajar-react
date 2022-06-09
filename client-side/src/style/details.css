@@ -1,33 +1,66 @@
 .card-details {
-    height: 200vh;
+    height: 100%;
     /* background: tomato; */
     /* display: flex; */
 }
 .details-i {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     background-color: #faebd7;
     position: relative;
     margin-left: 32px;
     width: 90%;
     /* margin-right: auto; */
 }
-.details-ii {
-    margin-bottom: 20px;
-    background-color: #faebd7;
-    position: relative;
-    margin-left: auto;
-    width: 90%;
-    margin-right: auto;
-}
 .details-i .image-details {
     margin-top: 8px;
-
     width: 98%;
     height: 80vh;
     position: relative;
     margin-left: auto;
     margin-right: auto;
 }
-.card-movies-genre {
+
+.layout-details .card-page {
+    /* background-color: tomato; */
+    background-color: rgb(229, 127, 109, 0.1);
+    border-radius: 5px;
     width: 100%;
+    margin-bottom: 5px;
+    margin-right: 40px;
+    height: 100%;
+}
+.layout-details .card-page .image-details {
+    width: 200px;
+    margin: 5px;
+    /* transform: translate(0%,0%); */
+}
+.layout-details .card-page2 {
+    margin-bottom: 5px;
+    margin-right: 40px;
+    height: 100%;
+}
+.layout-details .card-page .image-details {
+    width: 150px;
+    margin: 5px;
+}
+
+.layout-details .card-page .playList-movie {
+    transform: translateY(-20);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 58vw;
+    /* background-color: black; */
+    background-color: rgba(242, 248, 122, 0.4);
+
+    margin: 5px;
+}
+.layout-details .card-page .playList-movie .image {
+    width: 90%;
+    /* background-color: black; */
+
+    margin: 5px;
+    height: 520px;
 }

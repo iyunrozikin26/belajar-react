@@ -1,7 +1,9 @@
 import axios from "axios";
-import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE } from "../types/movieType";
+import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, GET_ORDER_MOVIES } from "../types/movieType";
 
 const moviesUrl = "http://localhost:3001/movies";
+const orderUrl = "http://localhost:3001/transaction";
+const access_token = localStorage.access_token;
 
 export const setMovies = (payload) => {
     return { type: SET_MOVIES, payload };
@@ -15,6 +17,9 @@ export const setMoviesError = (payload) => {
 export const setSingleMovie = (payload) => {
     return { type: GET_SINGLE_MOVIE, payload };
 };
+export const setOrderMovies = (payload) => {
+    return { type: GET_ORDER_MOVIES, payload };
+};
 
 export const fetchMovies = () => {
     return (dispatch, getState) => {
@@ -27,7 +32,7 @@ export const fetchMovies = () => {
             })
             .then((data) => {
                 console.log(data);
-                dispatch(setMovies(data));
+                dispatch(setMovies(data.rows));
             })
             .catch((error) => dispatch(setMoviesError(error.message)))
             .finally(() => dispatch(setMoviesLoading(false)));
@@ -42,6 +47,35 @@ export const getSingleMovie = (id) => {
         })
             .then(({ data }) => {
                 dispatch(setSingleMovie(data));
+            })
+            .catch((error) => console.log(error));
+    };
+};
+
+export const moviesOrders = (movieId, userId) => {
+    return (dispatch) => {
+        return new Promise((resolve, reject) => {
+            axios({
+                method: "post",
+                url: orderUrl + "/" + movieId + "/movies",
+                headers: { access_token, userId },
+            })
+                .then(({ data }) => resolve(data))
+                .catch((error) => reject(error));
+        });
+    };
+};
+
+export const getAllOrders = (userId) => {
+    return (dispatch) => {
+        axios({
+            method: "get",
+            url: orderUrl + "/movies",
+            headers: { access_token, userId },
+        })
+            .then(({data}) => {
+                console.log(data);
+                dispatch(setOrderMovies(data));
             })
             .catch((error) => console.log(error));
     };

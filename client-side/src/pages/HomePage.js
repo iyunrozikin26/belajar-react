@@ -1,7 +1,14 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
+    const access_token = localStorage.access_token;
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/");
+    };
     return (
         <>
             <div>
@@ -23,9 +30,23 @@ export const HomePage = () => {
                             <li>
                                 <Link to="movies/new">New Release</Link>
                             </li>
-                            <li>
-                                <Link to="/about">About</Link>
-                            </li>
+                            {access_token && (
+                                <>
+                                    <li>
+                                        <Link to="/transaction/movies">My movie</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="#" onClick={handleLogout}>
+                                            Logout
+                                        </Link>
+                                    </li>
+                                </>
+                            )}
+                            {!access_token && (
+                                <li>
+                                    <Link to="/login">Login</Link>
+                                </li>
+                            )}
                         </ul>
                     </nav>
                     <main className="filter w-full text-center flex flex-row justify-center bg-emerald-300 mb-3">

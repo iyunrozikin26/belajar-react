@@ -55,9 +55,7 @@ export const addNewMovie = (newMovie) => {
                     resolve(data);
                     // dispatch(fetchMovies());
                 })
-                .catch((err) => {
-                    console.log(err);
-                });
+                .catch((err) => reject(err));
         });
     };
 };
@@ -91,9 +89,7 @@ export const updatedMovie = (movieId, updateMovie) => {
                     resolve(data);
                     // dispatch(fetchMovies());
                 })
-                .catch((err) => {
-                    console.log(err);
-                });
+                .catch((err) => reject(err));
         });
     };
 };

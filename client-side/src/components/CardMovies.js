@@ -8,7 +8,7 @@ const CardMovies = (props) => {
             <div class="card-container">
                 {prop1.map((movie, i) => {
                     return (
-                        <div className="flex flex-col justify-center items-center text-whi">
+                        <div className="flex flex-col justify-center items-center text-whi" key={i}>
                             <div class="card" key={movie.id}>
                                 <div class="box">
                                     <div class="content flex flex-col">

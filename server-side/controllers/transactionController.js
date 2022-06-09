@@ -2,25 +2,27 @@ const { Order, Movie, Cast, Genre, User, sequelize } = require("../models");
 
 module.exports = class Controller {
     static async allTransactionOrder(req, res) {
-        const { id } = req.user;
+        const AuthorId = req.user.id; // hardcore
+
         try {
             const option = {
-                where: { AuthorId: id },
-                include: [
-                    {
-                        model: Movie,
-                        include: [
-                            {
-                                model: Cast,
-                                attributes: ["name", "profilePict"],
-                            },
-                            {
-                                model: Genre,
-                                attributes: ["name"],
-                            },
-                        ],
-                    },
-                ],
+                where: { AuthorId: req.user.id },
+                include: [{ model: Movie }],
+                // include: [
+                //     {
+                //         model: Movie,
+                //         include: [
+                //             {
+                //                 model: Cast,
+                //                 attributes: ["name", "profilePict"],
+                //             },
+                //             {
+                //                 model: Genre,
+                //                 attributes: ["name"],
+                //             },
+                //         ],
+                //     },
+                // ],
             };
             const orderTransaction = await Order.findAll(option);
             if (!orderTransaction) throw { status: 403, message: "Not allowed to be accessed" };
@@ -47,7 +49,7 @@ module.exports = class Controller {
 
             if (!user) throw { status: 401, message: "you must to login first" };
             if (Number(user.money) < Number(movie.price)) throw { status: 402, message: "your money is not enough" };
-            
+
             if (order) throw { status: 429, message: "you have ordered this movie" };
 
             const currentMoney = Number(user.money) - Number(movie.price);
