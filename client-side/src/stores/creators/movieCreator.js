@@ -1,6 +1,8 @@
 import axios from "axios";
 import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, GET_ORDER_MOVIES } from "../types/movieType";
 
+// const moviesUrl = "http://localhost3001/movies";
+// const orderUrl = "http://localhost3001/transaction";
 const moviesUrl = "https://movie-deploy-server.herokuapp.com/movies";
 const orderUrl = "https://movie-deploy-server.herokuapp.com/transaction";
 const access_token = localStorage.access_token;
