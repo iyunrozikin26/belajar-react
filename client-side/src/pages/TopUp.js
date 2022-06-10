@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { topUpMoney } from "../stores/creators/userCreator";
 
 export const TopUp = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const userId = localStorage.userId;
 
-    const [money, setTopUp] = useState("");
+    const [money, setTopUp] = useState(0);
 
     const changeMoney = (e) => {
         const { value } = e.target;
-        setTopUp(value);
+        setTopUp(+value);
     };
-
+    // console.log(+money);
+    // console.log(typeof +money)
     const submitTopUp = (e) => {
         e.preventDefault();
         dispatch(topUpMoney(userId, money));
@@ -30,7 +29,7 @@ export const TopUp = () => {
                                 <form className="space-y-6" onSubmit={submitTopUp}>
                                     <div>
                                         <input
-                                            type="text"
+                                            type="number"
                                             name="money"
                                             onChange={changeMoney}
                                             value={money}

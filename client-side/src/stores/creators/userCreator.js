@@ -41,11 +41,11 @@ export const topUpMoney = (userId, money) => {
         axios({
             method: "patch",
             url: usersUrl,
-            // url: "http://localhost:3001/users",
-            data: money,
+            data: Number(money),
             headers: { access_token: localStorage.access_token, userId },
         })
             .then(({ data }) => {
+                console.log(data);
                 dispatch(getUser(userId));
             })
             .catch((error) => console.log(error));
@@ -57,7 +57,6 @@ export const getUser = (userId) => {
         axios({
             method: "get",
             url: usersUrl,
-            // url: "http://localhost:5050/users",
             headers: { access_token: localStorage.access_token, userId },
         })
             .then(({ data }) => {
