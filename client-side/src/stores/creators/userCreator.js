@@ -38,19 +38,17 @@ export const userLogin = (user) => {
 };
 export const topUpMoney = (userId, money) => {
     return (dispatch) => {
-        return new Promise((resolve, reject) => {
-            axios({
-                method: "patch",
-                // url: usersUrl,
-                url: "http://localhost:3001/users",
-                data: money,
-                headers: { access_token: localStorage.access_token, userId },
+        axios({
+            method: "patch",
+            url: usersUrl,
+            // url: "http://localhost:3001/users",
+            data: money,
+            headers: { access_token: localStorage.access_token, userId },
+        })
+            .then(({ data }) => {
+                dispatch(getUser(userId));
             })
-                .then(({ data }) => {
-                    resolve(data);
-                })
-                .catch((error) => reject(error));
-        });
+            .catch((error) => console.log(error));
     };
 };
 

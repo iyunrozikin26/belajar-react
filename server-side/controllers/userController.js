@@ -39,7 +39,7 @@ class Controller {
                 role: "customer",
                 phoneNumber: "edit your phone number",
                 address: "edit your address",
-                money: "top-up your money",
+                money: 0,
             };
 
             const createNewUser = await User.create(newUser);
@@ -95,8 +95,13 @@ class Controller {
         try {
             const user = await User.findByPk(req.user.id);
             if (!user) throw { status: 404, message: "Not Found" };
-            const updateMoney = await User.update({ money: req.body }, { where: { id: req.user.id } });
-            res.status(201).json({ message: "your money has been top up" });
+            console.log(user.money);
+            console.log(req.body.money);
+            const currentMoney = Number(user.money) + Number(req.body.money);
+            console.log(currentMoney);
+            const updateMoney = await User.update({ money: currentMoney }, { where: { id: req.user.id }, returning: true });
+            // res.status(201).json({ message: "your money has been top up" });
+            res.status(201).json(updateMoney[1]);
         } catch (error) {
             console.log(error);
             res.status(error.status).json(error.message);
