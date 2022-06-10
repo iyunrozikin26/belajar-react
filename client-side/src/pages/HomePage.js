@@ -13,8 +13,7 @@ export const HomePage = () => {
         dispatch(getUser(userId));
     }, [dispatch]);
 
-    // const { user } = useSelector((state) => state.userReduser);
-    // console.log(user, 'INI DARI HOME');
+    const { user } = useSelector((state) => state.userReducer);
 
     const handleLogout = () => {
         localStorage.clear();
@@ -47,7 +46,9 @@ export const HomePage = () => {
                                         <Link to="/transaction/movies">My movie</Link>
                                     </li>
                                     <li>
-                                        <Link to="#">Hi. User | IDR.</Link>
+                                        <Link to="/user/topUpMoney">
+                                            Hi. {user.firstName + " " + user.lastName} | IDR. {user.money}
+                                        </Link>
                                     </li>
                                     <li>
                                         <Link to="#" onClick={handleLogout}>

@@ -81,10 +81,22 @@ class Controller {
         try {
             const user = await User.findOne({
                 where: { id: req.user.id },
-                attributes: ["firstName","lastName", "money"],
+                attributes: ["firstName", "lastName", "money"],
             });
             if (!user) throw { status: 404, message: "Not Found" };
             res.status(200).json(user);
+        } catch (error) {
+            console.log(error);
+            res.status(error.status).json(error.message);
+        }
+    }
+
+    static async topUpMoney(req, res) {
+        try {
+            const user = await User.findByPk(req.user.id);
+            if (!user) throw { status: 404, message: "Not Found" };
+            const updateMoney = await User.update({ money: req.body }, { where: { id: req.user.id } });
+            res.status(201).json({ message: "your money has been top up" });
         } catch (error) {
             console.log(error);
             res.status(error.status).json(error.message);

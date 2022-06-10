@@ -36,17 +36,34 @@ export const userLogin = (user) => {
         });
     };
 };
+export const topUpMoney = (userId, money) => {
+    return (dispatch) => {
+        return new Promise((resolve, reject) => {
+            axios({
+                method: "patch",
+                // url: usersUrl,
+                url: "http://localhost:3001/users",
+                data: money,
+                headers: { access_token: localStorage.access_token, userId },
+            })
+                .then(({ data }) => {
+                    resolve(data);
+                })
+                .catch((error) => reject(error));
+        });
+    };
+};
 
 export const getUser = (userId) => {
     return (dispatch) => {
         axios({
             method: "get",
-            // url: usersUrl,
-            url: "http://localhost:5050/users",
+            url: usersUrl,
+            // url: "http://localhost:5050/users",
             headers: { access_token: localStorage.access_token, userId },
         })
             .then(({ data }) => {
-                console.log(data);
+                // console.log(data);
                 dispatch(setUserLogin(data));
             })
             .catch((error) => console.log(error));
