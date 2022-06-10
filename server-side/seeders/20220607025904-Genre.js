@@ -2,7 +2,7 @@
 
 module.exports = {
     async up(queryInterface, Sequelize) {
-        let genres = require("../../json-server/genre.json").map((genre) => {
+        let genres = require("../genre.json").map((genre) => {
             genre.createdAt = new Date();
             genre.updatedAt = new Date();
             return genre;

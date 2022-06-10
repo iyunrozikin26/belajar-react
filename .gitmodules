@@ -1,0 +1,3 @@
+[submodule "server-side/bundle/ultisnips"]
+	path = server-side/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips
