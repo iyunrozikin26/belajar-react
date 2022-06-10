@@ -20,7 +20,7 @@ const NavigationBar = () => {
                 <div className="container overflow-x-hidden flex flex-wrap justify-between items-center mx-auto">
                     <Link className="flex items-center" to="/movies">
                         <img src="https://coursereport-production.imgix.net/uploads/school/logo/322/original/Logo_Hacktiv8.jpg?w=200&h=200" className="mt-1 mr-2 h-6 sm:h-9 rounded-xl" alt="Hactiv8 Logo" />
-                        <span className="text-white self-center text-xl font-bold whitespace-nowrap dark:text-white">HackMovies</span>
+                        <span className="text-white self-center text-3xl font-bold whitespace-nowrap dark:text-white">HackMovies</span>
                     </Link>
                     <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-3">
                         <ul className="flex items-center flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">

@@ -76,6 +76,20 @@ class Controller {
             res.status(error.status).json(error.message);
         }
     }
+
+    static async getUser(req, res) {
+        try {
+            const user = await User.findOne({
+                where: { id: req.user.id },
+                attributes: ["firstName","lastName", "money"],
+            });
+            if (!user) throw { status: 404, message: "Not Found" };
+            res.status(200).json(user);
+        } catch (error) {
+            console.log(error);
+            res.status(error.status).json(error.message);
+        }
+    }
 }
 
 module.exports = Controller;

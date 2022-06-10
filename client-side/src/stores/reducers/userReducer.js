@@ -1,4 +1,5 @@
-import { SET_USER_REGISTER } from "../actionTypes/userType";
+// import { SET_USER_LOGIN } from "../types/userType";
+import { SET_USER_LOGIN } from '../types/userType'
 
 const initialState = {
     user: {},
@@ -13,3 +14,5 @@ function userReducer(state = initialState, action) {
             return state;
     }
 }
+
+export default userReducer;

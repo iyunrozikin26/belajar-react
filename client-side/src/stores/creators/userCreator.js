@@ -1,10 +1,11 @@
 import axios from "axios";
+import { SET_USER_LOGIN } from "../types/userType";
 
-const usersUrl = "http://localhost:3001/users";
+const usersUrl = "https://movie-deploy-server.herokuapp.com/users";
 
-// export const setUserLogin = (payload) => {
-//     return { type: SET_USER_LOGIN, payload };
-// };
+export const setUserLogin = (payload) => {
+    return { type: SET_USER_LOGIN, payload };
+};
 
 export const userRegister = (newUser) => {
     return (dispatch) => {
@@ -33,5 +34,21 @@ export const userLogin = (user) => {
                 })
                 .catch((error) => reject(error));
         });
+    };
+};
+
+export const getUser = (userId) => {
+    return (dispatch) => {
+        axios({
+            method: "get",
+            // url: usersUrl,
+            url: "http://localhost:5050/users",
+            headers: { access_token: localStorage.access_token, userId },
+        })
+            .then(({ data }) => {
+                console.log(data);
+                dispatch(setUserLogin(data));
+            })
+            .catch((error) => console.log(error));
     };
 };

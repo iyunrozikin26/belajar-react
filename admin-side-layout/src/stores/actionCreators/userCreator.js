@@ -1,7 +1,7 @@
 import axios from "axios";
 import { SET_USER_LOGIN } from "../actionTypes/userType";
 
-const usersUrl = "http://localhost:3001/users";
+const usersUrl = "https://movie-deploy-server.herokuapp.com/users";
 
 // export const setUserLogin = (payload) => {
 //     return { type: SET_USER_LOGIN, payload };

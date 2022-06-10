@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../stores/creators/userCreator";
 
 export const HomePage = () => {
     const access_token = localStorage.access_token;
+    const userId = localStorage.userId;
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        dispatch(getUser(userId));
+    }, [dispatch]);
+
+    // const { user } = useSelector((state) => state.userReduser);
+    // console.log(user, 'INI DARI HOME');
 
     const handleLogout = () => {
         localStorage.clear();
@@ -24,16 +35,19 @@ export const HomePage = () => {
                     </label>
                     <nav className="nav">
                         <ul className="menu font-mono font-bold">
-                            <li>
+                            {/* <li>
                                 <Link to="movies/trending">Trending</Link>
                             </li>
                             <li>
                                 <Link to="movies/new">New Release</Link>
-                            </li>
+                            </li> */}
                             {access_token && (
                                 <>
                                     <li>
                                         <Link to="/transaction/movies">My movie</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="#">Hi. User | IDR.</Link>
                                     </li>
                                     <li>
                                         <Link to="#" onClick={handleLogout}>
@@ -52,28 +66,34 @@ export const HomePage = () => {
                     <main className="filter w-full text-center flex flex-row justify-center bg-emerald-300 mb-3">
                         <ul className="filter w-full text-sm flex  pl-8 justify-between bg-rose-300">
                             <li>
-                                <Link to="movies/action">ACTION</Link>
+                                <span name="filter" value="1">
+                                    ACTION
+                                </span>
                             </li>
                             <li>
-                                <Link to="movies/horror">HORROR</Link>
+                                <span name="filter" value="2">
+                                    SCI-FI
+                                </span>
                             </li>
                             <li>
-                                <Link to="movies/sci-fi">SCI-FI</Link>
+                                <span name="filter" value="5">
+                                    ADVENTURE
+                                </span>
                             </li>
                             <li>
-                                <Link to="movies/thriller">THRILLER</Link>
+                                <span name="filter" value="3">
+                                    HORROR
+                                </span>
                             </li>
                             <li>
-                                <Link to="movies/adventure">ADVENTURE</Link>
+                                <span name="filter" value="4">
+                                    THRILLER
+                                </span>
                             </li>
                             <li>
-                                <Link to="movies/romance">ROMANCE</Link>
-                            </li>
-                            <li>
-                                <Link to="movies/crime">CRIME</Link>
-                            </li>
-                            <li>
-                                <Link to="movies/comedy">COMEDY</Link>
+                                <span name="filter" value="6">
+                                    COMEDY
+                                </span>
                             </li>
                         </ul>
                         <h1 className="filter w-full text-center flex flex-row justify-center bg-red-500">INI SEARCH NAVIGATION BY TITLE</h1>
