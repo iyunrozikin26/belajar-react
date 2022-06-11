@@ -95,12 +95,13 @@ class Controller {
         try {
             const user = await User.findByPk(req.user.id);
             if (!user) throw { status: 404, message: "Not Found" };
-            console.log(user.money);
-            console.log(req.body.money);
+            // console.log(user.money);
+            // console.log(req.body.money);
+
             const currentMoney = Number(user.money) + Number(req.body.money);
-            console.log(currentMoney);
+            // console.log(currentMoney);
             const updateMoney = await User.update({ money: currentMoney }, { where: { id: req.user.id }, returning: true });
-            // res.status(201).json({ message: "your money has been top up" });
+
             res.status(201).json(updateMoney[1]);
         } catch (error) {
             console.log(error);

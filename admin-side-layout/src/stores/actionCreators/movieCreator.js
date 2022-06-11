@@ -2,6 +2,8 @@ import axios from "axios";
 import { SET_MOVIES, SET_MOVIES_ERROR, SET_MOVIES_LOADING, GET_SINGLE_MOVIE, SET_SEARCH, GET_ALL_GENRE } from "../actionTypes/movieType";
 
 const moviesUrl = "https://movie-deploy-server.herokuapp.com/movies";
+// const moviesUrl = "https://phase3-movie-app.herokuapp.com/movies";
+
 const access_token = localStorage.access_token;
 
 export const setMovies = (payload) => {

@@ -42,7 +42,7 @@ export const topUpMoney = (userId, money) => {
         axios({
             method: "patch",
             url: usersUrl,
-            data: Number(money),
+            data: { money },
             headers: { access_token: localStorage.access_token, userId },
         })
             .then(({ data }) => {

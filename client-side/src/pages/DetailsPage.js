@@ -27,13 +27,13 @@ export const DetailsPage = () => {
                     <div className="details-i rounded overflow-hidden shadow-lg">
                         <img className="image-details" src={movie.imgUrl} alt={movie.title} />
                         <div className="details-ii px-6 py-4">
-                            <div className="font-bold text-xl mb-2">The Codsdsdsdsdldest Sunset</div>
+                            <div className="font-bold text-xl mb-2">{movie.title}</div>
                             {/* <p className="text-gray-700 text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p> */}
                         </div>
                     </div>
                     <div className="details-i bg-white flex flex-col rounded overflow-hidden shadow-lg">
                         <div className="details-ii px-6 py-4">
-                            <div className="font-bold text-xl mb-2">{movie.title}</div>
+                            <div className="font-bold text-xl mb-2">synopsis</div>
                             <p className="text-gray-700 text-xs">{movie.synopsis}</p>
                             <div className="details-ii w-full px-6 py-4">
                                 <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#photography</span>

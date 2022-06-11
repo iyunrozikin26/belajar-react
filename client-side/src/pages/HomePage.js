@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../stores/creators/userCreator";
+import { fetchMovies, setSearch, setSearchByName } from "../stores/creators/movieCreator";
+import SearchMovies from "../components/SearchMovie";
 
 export const HomePage = () => {
     const access_token = localStorage.access_token;
@@ -11,10 +13,20 @@ export const HomePage = () => {
 
     useEffect(() => {
         dispatch(getUser(userId));
-    }, [dispatch]);
+    }, [userId]);
 
     const { user } = useSelector((state) => state.userReducer);
 
+    const filterChange = (e) => {
+        e.preventDefault();
+        dispatch(setSearch(e.target.value));
+        dispatch(setSearchByName(e.target.value));
+    };
+
+    const getAllRepeat = (e) => {
+        dispatch(fetchMovies());
+        e.target.value = "";
+    };
     const handleLogout = () => {
         localStorage.clear();
         navigate("/");
@@ -23,8 +35,8 @@ export const HomePage = () => {
         <>
             <div>
                 <header className="header">
-                    <Link to="/">
-                        <a href="#" className="logo font-bold text-red-400">
+                    <Link to="/movies">
+                        <a href="#" className="logo font-bold text-red-400" onClick={filterChange} value="">
                             HackMovies
                         </a>
                     </Link>
@@ -40,6 +52,11 @@ export const HomePage = () => {
                             <li>
                                 <Link to="movies/new">New Release</Link>
                             </li> */}
+                            <li>
+                                <Link to="/" onClick={getAllRepeat}>
+                                    Home
+                                </Link>
+                            </li>
                             {access_token && (
                                 <>
                                     <li>
@@ -47,7 +64,9 @@ export const HomePage = () => {
                                     </li>
                                     <li>
                                         <Link to="/user/topUpMoney">
-                                            Hi. {user.firstName + " " + user.lastName} | IDR. {user.money}
+                                            <span className="text-blue-400">
+                                                Hi. {user.firstName + " " + user.lastName} | IDR. {user.money}
+                                            </span>
                                         </Link>
                                     </li>
                                     <li>
@@ -64,40 +83,41 @@ export const HomePage = () => {
                             )}
                         </ul>
                     </nav>
-                    <main className="filter w-full text-center flex flex-row justify-center bg-emerald-300 mb-3">
-                        <ul className="filter w-full text-sm flex  pl-8 justify-between bg-rose-300">
+                    <main className="filter w-full text-center flex flex-row justify-center items-center bg-emerald-300 mb-3">
+                        <ul className="filter w-full text-sm flex  pl-8 justify-between ">
                             <li>
-                                <span name="filter" value="1">
+                                <button name="filter" onClick={filterChange} value="1">
                                     ACTION
-                                </span>
+                                </button>
                             </li>
                             <li>
-                                <span name="filter" value="2">
+                                <button name="filter" onClick={filterChange} value="2">
                                     SCI-FI
-                                </span>
+                                </button>
                             </li>
                             <li>
-                                <span name="filter" value="5">
+                                <button name="filter" onClick={filterChange} value="5">
                                     ADVENTURE
-                                </span>
+                                </button>
                             </li>
                             <li>
-                                <span name="filter" value="3">
-                                    HORROR
-                                </span>
-                            </li>
-                            <li>
-                                <span name="filter" value="4">
+                                <button name="filter" onClick={filterChange} value="3">
                                     THRILLER
-                                </span>
+                                </button>
                             </li>
                             <li>
-                                <span name="filter" value="6">
+                                <button name="filter" onClick={filterChange} value="4">
+                                    HORROR
+                                </button>
+                            </li>
+                            <li>
+                                <button name="filter" onClick={filterChange} value="6">
                                     COMEDY
-                                </span>
+                                </button>
                             </li>
                         </ul>
-                        <h1 className="filter w-full text-center flex flex-row justify-center bg-red-500">INI SEARCH NAVIGATION BY TITLE</h1>
+                        <SearchMovies />
+                        {/* <h1 className="filter w-full text-center flex flex-row justify-center bg-red-500">INI SEARCH NAVIGATION BY TITLE</h1> */}
                     </main>
                     <Outlet />
                 </header>

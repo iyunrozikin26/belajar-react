@@ -5,7 +5,7 @@ import { fetchMovies } from "../stores/creators/movieCreator";
 
 const MovieList = () => {
     const dispatch = useDispatch();
-    const { movies, error, loading } = useSelector((state) => state.movieReducer);
+    const { movies, error, loading, search, searchByName } = useSelector((state) => state.movieReducer);
 
     useEffect(() => {
         dispatch(fetchMovies());
@@ -15,7 +15,7 @@ const MovieList = () => {
         <>
             {loading && <span className="text-4xl text-red-600 bg-white flex items-center justify-center">LOADING...</span>}
             {loading && !error && <span className="text-red-600 bg-white">{error}</span>}
-            {!loading && !error && <CardMovies prop1={movies} />}
+            {!loading && !error && <CardMovies prop1={movies} prop2={search} prop3={searchByName} />}
         </>
     );
 };
